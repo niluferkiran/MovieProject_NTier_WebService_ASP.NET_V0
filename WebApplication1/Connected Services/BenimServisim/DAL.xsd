@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DAL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DAL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfKullanicilar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Kullanicilar" nillable="true" type="tns:Kullanicilar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKullanicilar" nillable="true" type="tns:ArrayOfKullanicilar" />
+  <xs:complexType name="Kullanicilar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cinsiyet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DogumTarihi" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KullaniciAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KullaniciDiziDetay" nillable="true" type="tns:ArrayOfKullaniciDiziDetay" />
+      <xs:element minOccurs="0" name="KullaniciFilmDetay" nillable="true" type="tns:ArrayOfKullaniciFilmDetay" />
+      <xs:element minOccurs="0" name="KullaniciId" type="xs:int" />
+      <xs:element minOccurs="0" name="KullaniciMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KullaniciSoyadi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RolId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Roller" nillable="true" type="tns:Roller" />
+      <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TCKN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isBanned" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="isDeleted" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Kullanicilar" nillable="true" type="tns:Kullanicilar" />
+  <xs:complexType name="ArrayOfKullaniciDiziDetay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KullaniciDiziDetay" nillable="true" type="tns:KullaniciDiziDetay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKullaniciDiziDetay" nillable="true" type="tns:ArrayOfKullaniciDiziDetay" />
+  <xs:complexType name="KullaniciDiziDetay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiziId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Diziler" nillable="true" type="tns:Diziler" />
+      <xs:element minOccurs="0" name="IzlenmeTarihi" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KullaniciDiziDetayId" type="xs:int" />
+      <xs:element minOccurs="0" name="KullaniciId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Kullanicilar" nillable="true" type="tns:Kullanicilar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KullaniciDiziDetay" nillable="true" type="tns:KullaniciDiziDetay" />
+  <xs:complexType name="Diziler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BolumSayisi" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiziAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiziDetay" nillable="true" type="tns:ArrayOfDiziDetay" />
+      <xs:element minOccurs="0" name="DiziId" type="xs:int" />
+      <xs:element minOccurs="0" name="DiziOdul" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiziResim" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KategoriId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Kategoriler" nillable="true" type="tns:Kategoriler" />
+      <xs:element minOccurs="0" name="KullaniciDiziDetay" nillable="true" type="tns:ArrayOfKullaniciDiziDetay" />
+      <xs:element minOccurs="0" name="SezonSayisi" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Ulkesi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YonetmenId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Yonetmenler" nillable="true" type="tns:Yonetmenler" />
+      <xs:element minOccurs="0" name="isDeleted" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Diziler" nillable="true" type="tns:Diziler" />
+  <xs:complexType name="ArrayOfDiziDetay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiziDetay" nillable="true" type="tns:DiziDetay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiziDetay" nillable="true" type="tns:ArrayOfDiziDetay" />
+  <xs:complexType name="DiziDetay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BolumIcerik" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BolumSuresi" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="DiziBolumAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiziDetayId" type="xs:int" />
+      <xs:element minOccurs="0" name="DiziId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiziOyuncular" nillable="true" type="tns:ArrayOfDiziOyuncular" />
+      <xs:element minOccurs="0" name="DiziVideo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diziler" nillable="true" type="tns:Diziler" />
+      <xs:element minOccurs="0" name="SezonAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YasSiniri" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="YayinlanmaTarihi" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiziDetay" nillable="true" type="tns:DiziDetay" />
+  <xs:complexType name="ArrayOfDiziOyuncular">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiziOyuncular" nillable="true" type="tns:DiziOyuncular" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiziOyuncular" nillable="true" type="tns:ArrayOfDiziOyuncular" />
+  <xs:complexType name="DiziOyuncular">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiziDetay" nillable="true" type="tns:DiziDetay" />
+      <xs:element minOccurs="0" name="DiziDetayId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiziOyuncuId" type="xs:int" />
+      <xs:element minOccurs="0" name="OyuncuId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Oyuncular" nillable="true" type="tns:Oyuncular" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiziOyuncular" nillable="true" type="tns:DiziOyuncular" />
+  <xs:complexType name="Oyuncular">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cinsiyet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiziOyuncular" nillable="true" type="tns:ArrayOfDiziOyuncular" />
+      <xs:element minOccurs="0" name="DogumTarihi" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FilmOyuncular" nillable="true" type="tns:ArrayOfFilmOyuncular" />
+      <xs:element minOccurs="0" name="OyuncuAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OyuncuId" type="xs:int" />
+      <xs:element minOccurs="0" name="OyuncuOdulleri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OyuncuSoyadi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ulkesi" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Oyuncular" nillable="true" type="tns:Oyuncular" />
+  <xs:complexType name="ArrayOfFilmOyuncular">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FilmOyuncular" nillable="true" type="tns:FilmOyuncular" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFilmOyuncular" nillable="true" type="tns:ArrayOfFilmOyuncular" />
+  <xs:complexType name="FilmOyuncular">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FilmId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FilmOyuncuId" type="xs:int" />
+      <xs:element minOccurs="0" name="Filmler" nillable="true" type="tns:Filmler" />
+      <xs:element minOccurs="0" name="OyuncuId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Oyuncular" nillable="true" type="tns:Oyuncular" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FilmOyuncular" nillable="true" type="tns:FilmOyuncular" />
+  <xs:complexType name="Filmler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FilmAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FilmId" type="xs:int" />
+      <xs:element minOccurs="0" name="FilmOdul" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FilmOyuncular" nillable="true" type="tns:ArrayOfFilmOyuncular" />
+      <xs:element minOccurs="0" name="FilmResim" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FilmSuresi" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FragmanSuresi" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FragmanVideo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KategoriId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Kategoriler" nillable="true" type="tns:Kategoriler" />
+      <xs:element minOccurs="0" name="Konusu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KullaniciFilmDetay" nillable="true" type="tns:ArrayOfKullaniciFilmDetay" />
+      <xs:element minOccurs="0" name="Ulkesi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Video" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VizyonTarihi" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="YasSiniri" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="YonetmenId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Yonetmenler" nillable="true" type="tns:Yonetmenler" />
+      <xs:element minOccurs="0" name="isDeleted" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Filmler" nillable="true" type="tns:Filmler" />
+  <xs:complexType name="Kategoriler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Diziler" nillable="true" type="tns:ArrayOfDiziler" />
+      <xs:element minOccurs="0" name="Filmler" nillable="true" type="tns:ArrayOfFilmler" />
+      <xs:element minOccurs="0" name="KategoriAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KategoriId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Kategoriler" nillable="true" type="tns:Kategoriler" />
+  <xs:complexType name="ArrayOfDiziler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Diziler" nillable="true" type="tns:Diziler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiziler" nillable="true" type="tns:ArrayOfDiziler" />
+  <xs:complexType name="ArrayOfFilmler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Filmler" nillable="true" type="tns:Filmler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFilmler" nillable="true" type="tns:ArrayOfFilmler" />
+  <xs:complexType name="ArrayOfKullaniciFilmDetay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KullaniciFilmDetay" nillable="true" type="tns:KullaniciFilmDetay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKullaniciFilmDetay" nillable="true" type="tns:ArrayOfKullaniciFilmDetay" />
+  <xs:complexType name="KullaniciFilmDetay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FilmId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Filmler" nillable="true" type="tns:Filmler" />
+      <xs:element minOccurs="0" name="IzlenmeTarihi" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KullaniciFilmDetayId" type="xs:int" />
+      <xs:element minOccurs="0" name="KullaniciId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Kullanicilar" nillable="true" type="tns:Kullanicilar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KullaniciFilmDetay" nillable="true" type="tns:KullaniciFilmDetay" />
+  <xs:complexType name="Yonetmenler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cinsiyet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diziler" nillable="true" type="tns:ArrayOfDiziler" />
+      <xs:element minOccurs="0" name="DogumTarihi" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Filmler" nillable="true" type="tns:ArrayOfFilmler" />
+      <xs:element minOccurs="0" name="YonetmenAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YonetmenId" type="xs:int" />
+      <xs:element minOccurs="0" name="YonetmenSoyadi" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Yonetmenler" nillable="true" type="tns:Yonetmenler" />
+  <xs:complexType name="Roller">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Kullanicilar" nillable="true" type="tns:ArrayOfKullanicilar" />
+      <xs:element minOccurs="0" name="RolAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RolId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Roller" nillable="true" type="tns:Roller" />
+</xs:schema>

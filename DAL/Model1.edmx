@@ -1,0 +1,962 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FilmProjesiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DiziDetay">
+          <Key>
+            <PropertyRef Name="DiziDetayId" />
+          </Key>
+          <Property Name="DiziDetayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiziId" Type="int" />
+          <Property Name="DiziBolumAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="BolumIcerik" Type="nvarchar(max)" />
+          <Property Name="BolumSuresi" Type="time" Precision="7" />
+          <Property Name="YayinlanmaTarihi" Type="date" />
+          <Property Name="SezonAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="YasSiniri" Type="int" />
+          <Property Name="DiziVideo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Diziler">
+          <Key>
+            <PropertyRef Name="DiziId" />
+          </Key>
+          <Property Name="DiziId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiziAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="YonetmenId" Type="int" />
+          <Property Name="KategoriId" Type="int" />
+          <Property Name="BolumSayisi" Type="int" />
+          <Property Name="SezonSayisi" Type="int" />
+          <Property Name="Ulkesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiziResim" Type="nvarchar" MaxLength="100" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="DiziOdul" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DiziOyuncular">
+          <Key>
+            <PropertyRef Name="DiziOyuncuId" />
+          </Key>
+          <Property Name="DiziOyuncuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiziDetayId" Type="int" />
+          <Property Name="OyuncuId" Type="int" />
+        </EntityType>
+        <EntityType Name="Filmler">
+          <Key>
+            <PropertyRef Name="FilmId" />
+          </Key>
+          <Property Name="FilmId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="VizyonTarihi" Type="date" />
+          <Property Name="FilmSuresi" Type="int" />
+          <Property Name="Konusu" Type="nvarchar(max)" />
+          <Property Name="FilmOdul" Type="nvarchar" MaxLength="100" />
+          <Property Name="YasSiniri" Type="int" />
+          <Property Name="Ulkesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="FilmResim" Type="nvarchar" MaxLength="100" />
+          <Property Name="Video" Type="nvarchar(max)" />
+          <Property Name="FragmanSuresi" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FragmanVideo" Type="nvarchar(max)" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="YonetmenId" Type="int" />
+          <Property Name="KategoriId" Type="int" />
+        </EntityType>
+        <EntityType Name="FilmOyuncular">
+          <Key>
+            <PropertyRef Name="FilmOyuncuId" />
+          </Key>
+          <Property Name="FilmOyuncuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmId" Type="int" />
+          <Property Name="OyuncuId" Type="int" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KullaniciDiziDetay">
+          <Key>
+            <PropertyRef Name="KullaniciDiziDetayId" />
+          </Key>
+          <Property Name="KullaniciDiziDetayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiziId" Type="int" />
+          <Property Name="KullaniciId" Type="int" />
+          <Property Name="IzlenmeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="KullaniciFilmDetay">
+          <Key>
+            <PropertyRef Name="KullaniciFilmDetayId" />
+          </Key>
+          <Property Name="KullaniciFilmDetayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmId" Type="int" />
+          <Property Name="KullaniciId" Type="int" />
+          <Property Name="IzlenmeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="KullaniciSoyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar(max)" />
+          <Property Name="RolId" Type="int" />
+          <Property Name="TCKN" Type="varchar" MaxLength="11" />
+          <Property Name="KullaniciMail" Type="nvarchar" MaxLength="100" />
+          <Property Name="DogumTarihi" Type="date" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="isBanned" Type="bit" />
+        </EntityType>
+        <EntityType Name="Oyuncular">
+          <Key>
+            <PropertyRef Name="OyuncuId" />
+          </Key>
+          <Property Name="OyuncuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OyuncuAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="OyuncuSoyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="DogumTarihi" Type="date" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
+          <Property Name="Ulkesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="OyuncuOdulleri" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Roller">
+          <Key>
+            <PropertyRef Name="RolId" />
+          </Key>
+          <Property Name="RolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Yonetmenler">
+          <Key>
+            <PropertyRef Name="YonetmenId" />
+          </Key>
+          <Property Name="YonetmenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YonetmenAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="YonetmenSoyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="DogumTarihi" Type="date" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <Association Name="FK__DiziDetay__DiziI__398D8EEE">
+          <End Role="Diziler" Type="Self.Diziler" Multiplicity="0..1" />
+          <End Role="DiziDetay" Type="Self.DiziDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diziler">
+              <PropertyRef Name="DiziId" />
+            </Principal>
+            <Dependent Role="DiziDetay">
+              <PropertyRef Name="DiziId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diziler__Kategor__3A81B327">
+          <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="0..1" />
+          <End Role="Diziler" Type="Self.Diziler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriler">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="Diziler">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diziler__Yonetme__3B75D760">
+          <End Role="Yonetmenler" Type="Self.Yonetmenler" Multiplicity="0..1" />
+          <End Role="Diziler" Type="Self.Diziler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yonetmenler">
+              <PropertyRef Name="YonetmenId" />
+            </Principal>
+            <Dependent Role="Diziler">
+              <PropertyRef Name="YonetmenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DiziOyunc__DiziD__3C69FB99">
+          <End Role="DiziDetay" Type="Self.DiziDetay" Multiplicity="0..1" />
+          <End Role="DiziOyuncular" Type="Self.DiziOyuncular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiziDetay">
+              <PropertyRef Name="DiziDetayId" />
+            </Principal>
+            <Dependent Role="DiziOyuncular">
+              <PropertyRef Name="DiziDetayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DiziOyunc__Oyunc__3D5E1FD2">
+          <End Role="Oyuncular" Type="Self.Oyuncular" Multiplicity="0..1" />
+          <End Role="DiziOyuncular" Type="Self.DiziOyuncular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oyuncular">
+              <PropertyRef Name="OyuncuId" />
+            </Principal>
+            <Dependent Role="DiziOyuncular">
+              <PropertyRef Name="OyuncuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Filmler__Kategor__3E52440B">
+          <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="0..1" />
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriler">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="Filmler">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Filmler__Yonetme__3F466844">
+          <End Role="Yonetmenler" Type="Self.Yonetmenler" Multiplicity="0..1" />
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yonetmenler">
+              <PropertyRef Name="YonetmenId" />
+            </Principal>
+            <Dependent Role="Filmler">
+              <PropertyRef Name="YonetmenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FilmOyunc__FilmI__403A8C7D">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="FilmOyuncular" Type="Self.FilmOyuncular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="FilmOyuncular">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FilmOyunc__Oyunc__412EB0B6">
+          <End Role="Oyuncular" Type="Self.Oyuncular" Multiplicity="0..1" />
+          <End Role="FilmOyuncular" Type="Self.FilmOyuncular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oyuncular">
+              <PropertyRef Name="OyuncuId" />
+            </Principal>
+            <Dependent Role="FilmOyuncular">
+              <PropertyRef Name="OyuncuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__DiziI__4222D4EF">
+          <End Role="Diziler" Type="Self.Diziler" Multiplicity="0..1" />
+          <End Role="KullaniciDiziDetay" Type="Self.KullaniciDiziDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diziler">
+              <PropertyRef Name="DiziId" />
+            </Principal>
+            <Dependent Role="KullaniciDiziDetay">
+              <PropertyRef Name="DiziId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__FilmI__440B1D61">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="KullaniciFilmDetay" Type="Self.KullaniciFilmDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="KullaniciFilmDetay">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__Kulla__4316F928">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="KullaniciDiziDetay" Type="Self.KullaniciDiziDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciId" />
+            </Principal>
+            <Dependent Role="KullaniciDiziDetay">
+              <PropertyRef Name="KullaniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__Kulla__44FF419A">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="KullaniciFilmDetay" Type="Self.KullaniciFilmDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciId" />
+            </Principal>
+            <Dependent Role="KullaniciFilmDetay">
+              <PropertyRef Name="KullaniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__RolId__45F365D3">
+          <End Role="Roller" Type="Self.Roller" Multiplicity="0..1" />
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roller">
+              <PropertyRef Name="RolId" />
+            </Principal>
+            <Dependent Role="Kullanicilar">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FilmProjesiModelStoreContainer">
+          <EntitySet Name="DiziDetay" EntityType="Self.DiziDetay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diziler" EntityType="Self.Diziler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiziOyuncular" EntityType="Self.DiziOyuncular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filmler" EntityType="Self.Filmler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilmOyuncular" EntityType="Self.FilmOyuncular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciDiziDetay" EntityType="Self.KullaniciDiziDetay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciFilmDetay" EntityType="Self.KullaniciFilmDetay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oyuncular" EntityType="Self.Oyuncular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roller" EntityType="Self.Roller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yonetmenler" EntityType="Self.Yonetmenler" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DiziDetay__DiziI__398D8EEE" Association="Self.FK__DiziDetay__DiziI__398D8EEE">
+            <End Role="Diziler" EntitySet="Diziler" />
+            <End Role="DiziDetay" EntitySet="DiziDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diziler__Kategor__3A81B327" Association="Self.FK__Diziler__Kategor__3A81B327">
+            <End Role="Kategoriler" EntitySet="Kategoriler" />
+            <End Role="Diziler" EntitySet="Diziler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diziler__Yonetme__3B75D760" Association="Self.FK__Diziler__Yonetme__3B75D760">
+            <End Role="Yonetmenler" EntitySet="Yonetmenler" />
+            <End Role="Diziler" EntitySet="Diziler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DiziOyunc__DiziD__3C69FB99" Association="Self.FK__DiziOyunc__DiziD__3C69FB99">
+            <End Role="DiziDetay" EntitySet="DiziDetay" />
+            <End Role="DiziOyuncular" EntitySet="DiziOyuncular" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DiziOyunc__Oyunc__3D5E1FD2" Association="Self.FK__DiziOyunc__Oyunc__3D5E1FD2">
+            <End Role="Oyuncular" EntitySet="Oyuncular" />
+            <End Role="DiziOyuncular" EntitySet="DiziOyuncular" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Filmler__Kategor__3E52440B" Association="Self.FK__Filmler__Kategor__3E52440B">
+            <End Role="Kategoriler" EntitySet="Kategoriler" />
+            <End Role="Filmler" EntitySet="Filmler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Filmler__Yonetme__3F466844" Association="Self.FK__Filmler__Yonetme__3F466844">
+            <End Role="Yonetmenler" EntitySet="Yonetmenler" />
+            <End Role="Filmler" EntitySet="Filmler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FilmOyunc__FilmI__403A8C7D" Association="Self.FK__FilmOyunc__FilmI__403A8C7D">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="FilmOyuncular" EntitySet="FilmOyuncular" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FilmOyunc__Oyunc__412EB0B6" Association="Self.FK__FilmOyunc__Oyunc__412EB0B6">
+            <End Role="Oyuncular" EntitySet="Oyuncular" />
+            <End Role="FilmOyuncular" EntitySet="FilmOyuncular" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__DiziI__4222D4EF" Association="Self.FK__Kullanici__DiziI__4222D4EF">
+            <End Role="Diziler" EntitySet="Diziler" />
+            <End Role="KullaniciDiziDetay" EntitySet="KullaniciDiziDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__FilmI__440B1D61" Association="Self.FK__Kullanici__FilmI__440B1D61">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="KullaniciFilmDetay" EntitySet="KullaniciFilmDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__Kulla__4316F928" Association="Self.FK__Kullanici__Kulla__4316F928">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="KullaniciDiziDetay" EntitySet="KullaniciDiziDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__Kulla__44FF419A" Association="Self.FK__Kullanici__Kulla__44FF419A">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="KullaniciFilmDetay" EntitySet="KullaniciFilmDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__RolId__45F365D3" Association="Self.FK__Kullanici__RolId__45F365D3">
+            <End Role="Roller" EntitySet="Roller" />
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FilmProjesiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DiziDetay">
+          <Key>
+            <PropertyRef Name="DiziDetayId" />
+          </Key>
+          <Property Name="DiziDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiziId" Type="Int32" />
+          <Property Name="DiziBolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BolumIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BolumSuresi" Type="Time" Precision="7" />
+          <Property Name="YayinlanmaTarihi" Type="DateTime" Precision="0" />
+          <Property Name="SezonAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YasSiniri" Type="Int32" />
+          <Property Name="DiziVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Diziler" Relationship="Self.FK__DiziDetay__DiziI__398D8EEE" FromRole="DiziDetay" ToRole="Diziler" />
+          <NavigationProperty Name="DiziOyuncular" Relationship="Self.FK__DiziOyunc__DiziD__3C69FB99" FromRole="DiziDetay" ToRole="DiziOyuncular" />
+        </EntityType>
+        <EntityType Name="Diziler">
+          <Key>
+            <PropertyRef Name="DiziId" />
+          </Key>
+          <Property Name="DiziId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiziAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YonetmenId" Type="Int32" />
+          <Property Name="KategoriId" Type="Int32" />
+          <Property Name="BolumSayisi" Type="Int32" />
+          <Property Name="SezonSayisi" Type="Int32" />
+          <Property Name="Ulkesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiziResim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="DiziOdul" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DiziDetay" Relationship="Self.FK__DiziDetay__DiziI__398D8EEE" FromRole="Diziler" ToRole="DiziDetay" />
+          <NavigationProperty Name="Kategoriler" Relationship="Self.FK__Diziler__Kategor__3A81B327" FromRole="Diziler" ToRole="Kategoriler" />
+          <NavigationProperty Name="Yonetmenler" Relationship="Self.FK__Diziler__Yonetme__3B75D760" FromRole="Diziler" ToRole="Yonetmenler" />
+          <NavigationProperty Name="KullaniciDiziDetay" Relationship="Self.FK__Kullanici__DiziI__4222D4EF" FromRole="Diziler" ToRole="KullaniciDiziDetay" />
+        </EntityType>
+        <EntityType Name="DiziOyuncular">
+          <Key>
+            <PropertyRef Name="DiziOyuncuId" />
+          </Key>
+          <Property Name="DiziOyuncuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiziDetayId" Type="Int32" />
+          <Property Name="OyuncuId" Type="Int32" />
+          <NavigationProperty Name="DiziDetay" Relationship="Self.FK__DiziOyunc__DiziD__3C69FB99" FromRole="DiziOyuncular" ToRole="DiziDetay" />
+          <NavigationProperty Name="Oyuncular" Relationship="Self.FK__DiziOyunc__Oyunc__3D5E1FD2" FromRole="DiziOyuncular" ToRole="Oyuncular" />
+        </EntityType>
+        <EntityType Name="Filmler">
+          <Key>
+            <PropertyRef Name="FilmId" />
+          </Key>
+          <Property Name="FilmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VizyonTarihi" Type="DateTime" Precision="0" />
+          <Property Name="FilmSuresi" Type="Int32" />
+          <Property Name="Konusu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FilmOdul" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="YasSiniri" Type="Int32" />
+          <Property Name="Ulkesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilmResim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FragmanSuresi" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FragmanVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="YonetmenId" Type="Int32" />
+          <Property Name="KategoriId" Type="Int32" />
+          <NavigationProperty Name="Kategoriler" Relationship="Self.FK__Filmler__Kategor__3E52440B" FromRole="Filmler" ToRole="Kategoriler" />
+          <NavigationProperty Name="Yonetmenler" Relationship="Self.FK__Filmler__Yonetme__3F466844" FromRole="Filmler" ToRole="Yonetmenler" />
+          <NavigationProperty Name="FilmOyuncular" Relationship="Self.FK__FilmOyunc__FilmI__403A8C7D" FromRole="Filmler" ToRole="FilmOyuncular" />
+          <NavigationProperty Name="KullaniciFilmDetay" Relationship="Self.FK__Kullanici__FilmI__440B1D61" FromRole="Filmler" ToRole="KullaniciFilmDetay" />
+        </EntityType>
+        <EntityType Name="FilmOyuncular">
+          <Key>
+            <PropertyRef Name="FilmOyuncuId" />
+          </Key>
+          <Property Name="FilmOyuncuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmId" Type="Int32" />
+          <Property Name="OyuncuId" Type="Int32" />
+          <NavigationProperty Name="Filmler" Relationship="Self.FK__FilmOyunc__FilmI__403A8C7D" FromRole="FilmOyuncular" ToRole="Filmler" />
+          <NavigationProperty Name="Oyuncular" Relationship="Self.FK__FilmOyunc__Oyunc__412EB0B6" FromRole="FilmOyuncular" ToRole="Oyuncular" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Diziler" Relationship="Self.FK__Diziler__Kategor__3A81B327" FromRole="Kategoriler" ToRole="Diziler" />
+          <NavigationProperty Name="Filmler" Relationship="Self.FK__Filmler__Kategor__3E52440B" FromRole="Kategoriler" ToRole="Filmler" />
+        </EntityType>
+        <EntityType Name="KullaniciDiziDetay">
+          <Key>
+            <PropertyRef Name="KullaniciDiziDetayId" />
+          </Key>
+          <Property Name="KullaniciDiziDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiziId" Type="Int32" />
+          <Property Name="KullaniciId" Type="Int32" />
+          <NavigationProperty Name="Diziler" Relationship="Self.FK__Kullanici__DiziI__4222D4EF" FromRole="KullaniciDiziDetay" ToRole="Diziler" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Self.FK__Kullanici__Kulla__4316F928" FromRole="KullaniciDiziDetay" ToRole="Kullanicilar" />
+          <Property Name="IzlenmeTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="KullaniciFilmDetay">
+          <Key>
+            <PropertyRef Name="KullaniciFilmDetayId" />
+          </Key>
+          <Property Name="KullaniciFilmDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmId" Type="Int32" />
+          <Property Name="KullaniciId" Type="Int32" />
+          <NavigationProperty Name="Filmler" Relationship="Self.FK__Kullanici__FilmI__440B1D61" FromRole="KullaniciFilmDetay" ToRole="Filmler" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Self.FK__Kullanici__Kulla__44FF419A" FromRole="KullaniciFilmDetay" ToRole="Kullanicilar" />
+          <Property Name="IzlenmeTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciSoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RolId" Type="Int32" />
+          <Property Name="TCKN" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="KullaniciDiziDetay" Relationship="Self.FK__Kullanici__Kulla__4316F928" FromRole="Kullanicilar" ToRole="KullaniciDiziDetay" />
+          <NavigationProperty Name="KullaniciFilmDetay" Relationship="Self.FK__Kullanici__Kulla__44FF419A" FromRole="Kullanicilar" ToRole="KullaniciFilmDetay" />
+          <NavigationProperty Name="Roller" Relationship="Self.FK__Kullanici__RolId__45F365D3" FromRole="Kullanicilar" ToRole="Roller" />
+          <Property Name="isBanned" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Oyuncular">
+          <Key>
+            <PropertyRef Name="OyuncuId" />
+          </Key>
+          <Property Name="OyuncuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OyuncuAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OyuncuSoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Ulkesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OyuncuOdulleri" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DiziOyuncular" Relationship="Self.FK__DiziOyunc__Oyunc__3D5E1FD2" FromRole="Oyuncular" ToRole="DiziOyuncular" />
+          <NavigationProperty Name="FilmOyuncular" Relationship="Self.FK__FilmOyunc__Oyunc__412EB0B6" FromRole="Oyuncular" ToRole="FilmOyuncular" />
+        </EntityType>
+        <EntityType Name="Roller">
+          <Key>
+            <PropertyRef Name="RolId" />
+          </Key>
+          <Property Name="RolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Self.FK__Kullanici__RolId__45F365D3" FromRole="Roller" ToRole="Kullanicilar" />
+        </EntityType>
+        <EntityType Name="Yonetmenler">
+          <Key>
+            <PropertyRef Name="YonetmenId" />
+          </Key>
+          <Property Name="YonetmenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YonetmenAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YonetmenSoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Diziler" Relationship="Self.FK__Diziler__Yonetme__3B75D760" FromRole="Yonetmenler" ToRole="Diziler" />
+          <NavigationProperty Name="Filmler" Relationship="Self.FK__Filmler__Yonetme__3F466844" FromRole="Yonetmenler" ToRole="Filmler" />
+        </EntityType>
+        <Association Name="FK__DiziDetay__DiziI__398D8EEE">
+          <End Role="Diziler" Type="Self.Diziler" Multiplicity="0..1" />
+          <End Role="DiziDetay" Type="Self.DiziDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diziler">
+              <PropertyRef Name="DiziId" />
+            </Principal>
+            <Dependent Role="DiziDetay">
+              <PropertyRef Name="DiziId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DiziOyunc__DiziD__3C69FB99">
+          <End Role="DiziDetay" Type="Self.DiziDetay" Multiplicity="0..1" />
+          <End Role="DiziOyuncular" Type="Self.DiziOyuncular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiziDetay">
+              <PropertyRef Name="DiziDetayId" />
+            </Principal>
+            <Dependent Role="DiziOyuncular">
+              <PropertyRef Name="DiziDetayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diziler__Kategor__3A81B327">
+          <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="0..1" />
+          <End Role="Diziler" Type="Self.Diziler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriler">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="Diziler">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diziler__Yonetme__3B75D760">
+          <End Role="Yonetmenler" Type="Self.Yonetmenler" Multiplicity="0..1" />
+          <End Role="Diziler" Type="Self.Diziler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yonetmenler">
+              <PropertyRef Name="YonetmenId" />
+            </Principal>
+            <Dependent Role="Diziler">
+              <PropertyRef Name="YonetmenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__DiziI__4222D4EF">
+          <End Role="Diziler" Type="Self.Diziler" Multiplicity="0..1" />
+          <End Role="KullaniciDiziDetay" Type="Self.KullaniciDiziDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diziler">
+              <PropertyRef Name="DiziId" />
+            </Principal>
+            <Dependent Role="KullaniciDiziDetay">
+              <PropertyRef Name="DiziId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DiziOyunc__Oyunc__3D5E1FD2">
+          <End Role="Oyuncular" Type="Self.Oyuncular" Multiplicity="0..1" />
+          <End Role="DiziOyuncular" Type="Self.DiziOyuncular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oyuncular">
+              <PropertyRef Name="OyuncuId" />
+            </Principal>
+            <Dependent Role="DiziOyuncular">
+              <PropertyRef Name="OyuncuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Filmler__Kategor__3E52440B">
+          <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="0..1" />
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriler">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="Filmler">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Filmler__Yonetme__3F466844">
+          <End Role="Yonetmenler" Type="Self.Yonetmenler" Multiplicity="0..1" />
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yonetmenler">
+              <PropertyRef Name="YonetmenId" />
+            </Principal>
+            <Dependent Role="Filmler">
+              <PropertyRef Name="YonetmenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FilmOyunc__FilmI__403A8C7D">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="FilmOyuncular" Type="Self.FilmOyuncular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="FilmOyuncular">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__FilmI__440B1D61">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="KullaniciFilmDetay" Type="Self.KullaniciFilmDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="KullaniciFilmDetay">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FilmOyunc__Oyunc__412EB0B6">
+          <End Role="Oyuncular" Type="Self.Oyuncular" Multiplicity="0..1" />
+          <End Role="FilmOyuncular" Type="Self.FilmOyuncular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oyuncular">
+              <PropertyRef Name="OyuncuId" />
+            </Principal>
+            <Dependent Role="FilmOyuncular">
+              <PropertyRef Name="OyuncuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__Kulla__4316F928">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="KullaniciDiziDetay" Type="Self.KullaniciDiziDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciId" />
+            </Principal>
+            <Dependent Role="KullaniciDiziDetay">
+              <PropertyRef Name="KullaniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__Kulla__44FF419A">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="KullaniciFilmDetay" Type="Self.KullaniciFilmDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciId" />
+            </Principal>
+            <Dependent Role="KullaniciFilmDetay">
+              <PropertyRef Name="KullaniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kullanici__RolId__45F365D3">
+          <End Role="Roller" Type="Self.Roller" Multiplicity="0..1" />
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roller">
+              <PropertyRef Name="RolId" />
+            </Principal>
+            <Dependent Role="Kullanicilar">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FilmProjesiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DiziDetay" EntityType="Self.DiziDetay" />
+          <EntitySet Name="Diziler" EntityType="Self.Diziler" />
+          <EntitySet Name="DiziOyuncular" EntityType="Self.DiziOyuncular" />
+          <EntitySet Name="Filmler" EntityType="Self.Filmler" />
+          <EntitySet Name="FilmOyuncular" EntityType="Self.FilmOyuncular" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" />
+          <EntitySet Name="KullaniciDiziDetay" EntityType="Self.KullaniciDiziDetay" />
+          <EntitySet Name="KullaniciFilmDetay" EntityType="Self.KullaniciFilmDetay" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+          <EntitySet Name="Oyuncular" EntityType="Self.Oyuncular" />
+          <EntitySet Name="Roller" EntityType="Self.Roller" />
+          <EntitySet Name="Yonetmenler" EntityType="Self.Yonetmenler" />
+          <AssociationSet Name="FK__DiziDetay__DiziI__398D8EEE" Association="Self.FK__DiziDetay__DiziI__398D8EEE">
+            <End Role="Diziler" EntitySet="Diziler" />
+            <End Role="DiziDetay" EntitySet="DiziDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DiziOyunc__DiziD__3C69FB99" Association="Self.FK__DiziOyunc__DiziD__3C69FB99">
+            <End Role="DiziDetay" EntitySet="DiziDetay" />
+            <End Role="DiziOyuncular" EntitySet="DiziOyuncular" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diziler__Kategor__3A81B327" Association="Self.FK__Diziler__Kategor__3A81B327">
+            <End Role="Kategoriler" EntitySet="Kategoriler" />
+            <End Role="Diziler" EntitySet="Diziler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diziler__Yonetme__3B75D760" Association="Self.FK__Diziler__Yonetme__3B75D760">
+            <End Role="Yonetmenler" EntitySet="Yonetmenler" />
+            <End Role="Diziler" EntitySet="Diziler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__DiziI__4222D4EF" Association="Self.FK__Kullanici__DiziI__4222D4EF">
+            <End Role="Diziler" EntitySet="Diziler" />
+            <End Role="KullaniciDiziDetay" EntitySet="KullaniciDiziDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DiziOyunc__Oyunc__3D5E1FD2" Association="Self.FK__DiziOyunc__Oyunc__3D5E1FD2">
+            <End Role="Oyuncular" EntitySet="Oyuncular" />
+            <End Role="DiziOyuncular" EntitySet="DiziOyuncular" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Filmler__Kategor__3E52440B" Association="Self.FK__Filmler__Kategor__3E52440B">
+            <End Role="Kategoriler" EntitySet="Kategoriler" />
+            <End Role="Filmler" EntitySet="Filmler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Filmler__Yonetme__3F466844" Association="Self.FK__Filmler__Yonetme__3F466844">
+            <End Role="Yonetmenler" EntitySet="Yonetmenler" />
+            <End Role="Filmler" EntitySet="Filmler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FilmOyunc__FilmI__403A8C7D" Association="Self.FK__FilmOyunc__FilmI__403A8C7D">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="FilmOyuncular" EntitySet="FilmOyuncular" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__FilmI__440B1D61" Association="Self.FK__Kullanici__FilmI__440B1D61">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="KullaniciFilmDetay" EntitySet="KullaniciFilmDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FilmOyunc__Oyunc__412EB0B6" Association="Self.FK__FilmOyunc__Oyunc__412EB0B6">
+            <End Role="Oyuncular" EntitySet="Oyuncular" />
+            <End Role="FilmOyuncular" EntitySet="FilmOyuncular" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__Kulla__4316F928" Association="Self.FK__Kullanici__Kulla__4316F928">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="KullaniciDiziDetay" EntitySet="KullaniciDiziDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__Kulla__44FF419A" Association="Self.FK__Kullanici__Kulla__44FF419A">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="KullaniciFilmDetay" EntitySet="KullaniciFilmDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kullanici__RolId__45F365D3" Association="Self.FK__Kullanici__RolId__45F365D3">
+            <End Role="Roller" EntitySet="Roller" />
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FilmProjesiModelStoreContainer" CdmEntityContainer="FilmProjesiEntities">
+          <EntitySetMapping Name="DiziDetay">
+            <EntityTypeMapping TypeName="FilmProjesiModel.DiziDetay">
+              <MappingFragment StoreEntitySet="DiziDetay">
+                <ScalarProperty Name="DiziDetayId" ColumnName="DiziDetayId" />
+                <ScalarProperty Name="DiziId" ColumnName="DiziId" />
+                <ScalarProperty Name="DiziBolumAdi" ColumnName="DiziBolumAdi" />
+                <ScalarProperty Name="BolumIcerik" ColumnName="BolumIcerik" />
+                <ScalarProperty Name="BolumSuresi" ColumnName="BolumSuresi" />
+                <ScalarProperty Name="YayinlanmaTarihi" ColumnName="YayinlanmaTarihi" />
+                <ScalarProperty Name="SezonAdi" ColumnName="SezonAdi" />
+                <ScalarProperty Name="YasSiniri" ColumnName="YasSiniri" />
+                <ScalarProperty Name="DiziVideo" ColumnName="DiziVideo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diziler">
+            <EntityTypeMapping TypeName="FilmProjesiModel.Diziler">
+              <MappingFragment StoreEntitySet="Diziler">
+                <ScalarProperty Name="DiziId" ColumnName="DiziId" />
+                <ScalarProperty Name="DiziAdi" ColumnName="DiziAdi" />
+                <ScalarProperty Name="YonetmenId" ColumnName="YonetmenId" />
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+                <ScalarProperty Name="BolumSayisi" ColumnName="BolumSayisi" />
+                <ScalarProperty Name="SezonSayisi" ColumnName="SezonSayisi" />
+                <ScalarProperty Name="Ulkesi" ColumnName="Ulkesi" />
+                <ScalarProperty Name="DiziResim" ColumnName="DiziResim" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="DiziOdul" ColumnName="DiziOdul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiziOyuncular">
+            <EntityTypeMapping TypeName="FilmProjesiModel.DiziOyuncular">
+              <MappingFragment StoreEntitySet="DiziOyuncular">
+                <ScalarProperty Name="DiziOyuncuId" ColumnName="DiziOyuncuId" />
+                <ScalarProperty Name="DiziDetayId" ColumnName="DiziDetayId" />
+                <ScalarProperty Name="OyuncuId" ColumnName="OyuncuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filmler">
+            <EntityTypeMapping TypeName="FilmProjesiModel.Filmler">
+              <MappingFragment StoreEntitySet="Filmler">
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+                <ScalarProperty Name="VizyonTarihi" ColumnName="VizyonTarihi" />
+                <ScalarProperty Name="FilmSuresi" ColumnName="FilmSuresi" />
+                <ScalarProperty Name="Konusu" ColumnName="Konusu" />
+                <ScalarProperty Name="FilmOdul" ColumnName="FilmOdul" />
+                <ScalarProperty Name="YasSiniri" ColumnName="YasSiniri" />
+                <ScalarProperty Name="Ulkesi" ColumnName="Ulkesi" />
+                <ScalarProperty Name="FilmResim" ColumnName="FilmResim" />
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="FragmanSuresi" ColumnName="FragmanSuresi" />
+                <ScalarProperty Name="FragmanVideo" ColumnName="FragmanVideo" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="YonetmenId" ColumnName="YonetmenId" />
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilmOyuncular">
+            <EntityTypeMapping TypeName="FilmProjesiModel.FilmOyuncular">
+              <MappingFragment StoreEntitySet="FilmOyuncular">
+                <ScalarProperty Name="FilmOyuncuId" ColumnName="FilmOyuncuId" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="OyuncuId" ColumnName="OyuncuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoriler">
+            <EntityTypeMapping TypeName="FilmProjesiModel.Kategoriler">
+              <MappingFragment StoreEntitySet="Kategoriler">
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciDiziDetay">
+            <EntityTypeMapping TypeName="FilmProjesiModel.KullaniciDiziDetay">
+              <MappingFragment StoreEntitySet="KullaniciDiziDetay">
+                <ScalarProperty Name="IzlenmeTarihi" ColumnName="IzlenmeTarihi" />
+                <ScalarProperty Name="KullaniciDiziDetayId" ColumnName="KullaniciDiziDetayId" />
+                <ScalarProperty Name="DiziId" ColumnName="DiziId" />
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciFilmDetay">
+            <EntityTypeMapping TypeName="FilmProjesiModel.KullaniciFilmDetay">
+              <MappingFragment StoreEntitySet="KullaniciFilmDetay">
+                <ScalarProperty Name="IzlenmeTarihi" ColumnName="IzlenmeTarihi" />
+                <ScalarProperty Name="KullaniciFilmDetayId" ColumnName="KullaniciFilmDetayId" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="FilmProjesiModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="isBanned" ColumnName="isBanned" />
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="KullaniciSoyadi" ColumnName="KullaniciSoyadi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="TCKN" ColumnName="TCKN" />
+                <ScalarProperty Name="KullaniciMail" ColumnName="KullaniciMail" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oyuncular">
+            <EntityTypeMapping TypeName="FilmProjesiModel.Oyuncular">
+              <MappingFragment StoreEntitySet="Oyuncular">
+                <ScalarProperty Name="OyuncuId" ColumnName="OyuncuId" />
+                <ScalarProperty Name="OyuncuAdi" ColumnName="OyuncuAdi" />
+                <ScalarProperty Name="OyuncuSoyadi" ColumnName="OyuncuSoyadi" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="Ulkesi" ColumnName="Ulkesi" />
+                <ScalarProperty Name="OyuncuOdulleri" ColumnName="OyuncuOdulleri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roller">
+            <EntityTypeMapping TypeName="FilmProjesiModel.Roller">
+              <MappingFragment StoreEntitySet="Roller">
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="RolAdi" ColumnName="RolAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yonetmenler">
+            <EntityTypeMapping TypeName="FilmProjesiModel.Yonetmenler">
+              <MappingFragment StoreEntitySet="Yonetmenler">
+                <ScalarProperty Name="YonetmenId" ColumnName="YonetmenId" />
+                <ScalarProperty Name="YonetmenAdi" ColumnName="YonetmenAdi" />
+                <ScalarProperty Name="YonetmenSoyadi" ColumnName="YonetmenSoyadi" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -47,12 +47,16 @@
                 <img src="images/logomod2232rn.JPG" />
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" />
+                <asp:Label ID="Label1" runat="server" Text="Label">Email:</asp:Label>
+                <%-- <label for="email">Email:</label>--%>
+                <%--<asp:TextBox ID="txtKullaniciEmail" runat="server" CssClass="form-control"></asp:TextBox>--%>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="" />
             </div>
             <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" />
+                <asp:Label ID="Label2" runat="server" Text="Label">Password:</asp:Label>
+                <%--                <label for="pwd">Password:</label>--%>
+                <%--<asp:TextBox ID="txtSifre" runat="server" CssClass="form-control"></asp:TextBox>--%>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" value="" />
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -64,7 +68,9 @@
                 Üye değil misin? 
             <asp:LinkButton ID="LinkButton1" runat="server">Üye ol</asp:LinkButton>
             </div>
-            <button type="submit" class="btn btn-primary"><a href="KullaniciAnasayfa.aspx">Giriş</a></button>
+            <asp:Button ID="Button1" runat="server" Text="Giriş" BorderStyle="None" OnClick="Button1_Click" CommandName="Giris" CommandArgument='<%#Eval("KullaniciId") %>' />
+
+            <%--<button type="submit" class="btn btn-primary"><a href="KullaniciAnasayfa.aspx">Giriş</a></button>--%>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>

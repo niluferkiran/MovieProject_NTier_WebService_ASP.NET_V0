@@ -12,12 +12,12 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class KullaniciFilmDetay
+    public partial class KullaniciFilmListesi
     {
         public int KullaniciFilmDetayId { get; set; }
         public Nullable<int> FilmId { get; set; }
         public Nullable<int> KullaniciId { get; set; }
-        public Nullable<System.DateTime> IzlenmeTarihi { get; set; }
+        public Nullable<System.DateTime> izlenmeTarih { get; set; }
     
         public virtual Filmler Filmler { get; set; }
         public virtual Kullanicilar Kullanicilar { get; set; }

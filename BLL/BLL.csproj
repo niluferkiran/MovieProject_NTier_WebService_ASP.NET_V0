@@ -51,18 +51,19 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="MailGonderici.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\FilmRepository.cs" />
     <Compile Include="Repositories\KullaniciRepository.cs" />
     <Compile Include="Sifreleme.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{4649d025-2533-4990-9790-9d47c6fbd1c7}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

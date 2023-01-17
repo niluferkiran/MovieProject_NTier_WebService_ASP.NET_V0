@@ -10,7 +10,7 @@ namespace WcfServiceLibrary2
 {
     public class KullaniciServisi : IKullaniciServisi
     {
-        FilmProjesiEntities db = new FilmProjesiEntities();
+        MovieBoxDBEntities db = new MovieBoxDBEntities();
 
         public List<Kullanicilar> KullanicilariGetir()
         {
@@ -25,8 +25,7 @@ namespace WcfServiceLibrary2
                 KullaniciMail = k.KullaniciMail,
                 DogumTarihi = k.DogumTarihi,
                 Cinsiyet = k.Cinsiyet,
-                isDeleted = k.isDeleted,
-                isBanned = k.isBanned
+                isDeleted = k.isDeleted
                 
             }).ToList();
         }

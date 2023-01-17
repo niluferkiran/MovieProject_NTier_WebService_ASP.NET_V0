@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -94,6 +100,7 @@
     <Content Include="CSS\cover.css" />
     <Content Include="CSS\Filmler.css" />
     <Content Include="Diziler.aspx" />
+    <Content Include="filmForm.aspx" />
     <Content Include="Filmler.aspx" />
     <Content Include="Game1.aspx" />
     <Content Include="CSS\Game1.css" />
@@ -109,6 +116,7 @@
     <Content Include="js\game1.js" />
     <Content Include="KarsilamaSayfasi.aspx" />
     <Content Include="KullaniciAnasayfa.aspx" />
+    <Content Include="kullaniciForm.aspx" />
     <Content Include="Style.css" />
     <Content Include="TryMeLoL.aspx" />
     <Content Include="TryMeLoL.css" />
@@ -131,6 +139,7 @@
     <Content Include="bootstrap\css\bootstrap.min.css.map" />
     <Content Include="bootstrap\css\bootstrap.rtl.css.map" />
     <Content Include="bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Admin.Master" />
     <None Include="Connected Services\BenimServisim\configuration91.svcinfo" />
     <None Include="Connected Services\BenimServisim\configuration.svcinfo" />
     <None Include="Connected Services\BenimServisim\DAL.xsd">
@@ -150,6 +159,13 @@
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\BenimServisim\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -161,6 +177,13 @@
     </Compile>
     <Compile Include="Diziler.aspx.designer.cs">
       <DependentUpon>Diziler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="filmForm.aspx.cs">
+      <DependentUpon>filmForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="filmForm.aspx.designer.cs">
+      <DependentUpon>filmForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Filmler.aspx.cs">
       <DependentUpon>Filmler.aspx</DependentUpon>
@@ -196,6 +219,13 @@
     </Compile>
     <Compile Include="KullaniciAnasayfa.aspx.designer.cs">
       <DependentUpon>KullaniciAnasayfa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kullaniciForm.aspx.cs">
+      <DependentUpon>kullaniciForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kullaniciForm.aspx.designer.cs">
+      <DependentUpon>kullaniciForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TryMeLoL.aspx.cs">
@@ -250,6 +280,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{d4fef46c-07e6-4cad-bc40-16e175dab7a9}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{4649D025-2533-4990-9790-9D47C6FBD1C7}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

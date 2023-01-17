@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FilmProjesiEntities : DbContext
+    public partial class MovieBoxDBEntities : DbContext
     {
-        public FilmProjesiEntities()
-            : base("name=FilmProjesiEntities")
+        public MovieBoxDBEntities()
+            : base("name=MovieBoxDBEntities")
         {
         }
     
@@ -25,14 +25,11 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<DiziDetay> DiziDetay { get; set; }
-        public virtual DbSet<Diziler> Diziler { get; set; }
-        public virtual DbSet<DiziOyuncular> DiziOyuncular { get; set; }
+        public virtual DbSet<Duyurular> Duyurular { get; set; }
         public virtual DbSet<Filmler> Filmler { get; set; }
         public virtual DbSet<FilmOyuncular> FilmOyuncular { get; set; }
         public virtual DbSet<Kategoriler> Kategoriler { get; set; }
-        public virtual DbSet<KullaniciDiziDetay> KullaniciDiziDetay { get; set; }
-        public virtual DbSet<KullaniciFilmDetay> KullaniciFilmDetay { get; set; }
+        public virtual DbSet<KullaniciFilmListesi> KullaniciFilmListesi { get; set; }
         public virtual DbSet<Kullanicilar> Kullanicilar { get; set; }
         public virtual DbSet<Oyuncular> Oyuncular { get; set; }
         public virtual DbSet<Roller> Roller { get; set; }

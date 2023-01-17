@@ -12,7 +12,7 @@ namespace BLL
 {
     public class MailGonderici
     {
-        FilmProjesiEntities db = new FilmProjesiEntities();
+        MovieBoxDBEntities db = new MovieBoxDBEntities();
         KullaniciRepository kulRepo = new KullaniciRepository();
         Kullanicilar secilen;
         public void Email(string AliciMail)

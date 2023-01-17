@@ -12,14 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class KullaniciDiziDetay
+    public partial class Duyurular
     {
-        public int KullaniciDiziDetayId { get; set; }
-        public Nullable<int> DiziId { get; set; }
+        public int DuyuruId { get; set; }
         public Nullable<int> KullaniciId { get; set; }
-        public Nullable<System.DateTime> IzlenmeTarihi { get; set; }
+        public string duyuruIcerik { get; set; }
+        public Nullable<System.DateTime> tarih { get; set; }
     
-        public virtual Diziler Diziler { get; set; }
         public virtual Kullanicilar Kullanicilar { get; set; }
     }
 }

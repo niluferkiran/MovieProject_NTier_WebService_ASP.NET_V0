@@ -9,17 +9,17 @@ namespace BLL.Repositories
 {
     public class KullaniciRepository : IRepository<Kullanicilar>
     {
-        FilmProjesiEntities db = new FilmProjesiEntities();
+        MovieBoxDBEntities db = new MovieBoxDBEntities();
         public void Delete(int itemId)
         {
             Kullanicilar silinecek = db.Kullanicilar.Find(itemId);
-            db.Kullanicilar.Add(silinecek).isDeleted = true;
+            silinecek.isDeleted = true;
             db.SaveChanges();
         }
 
         public List<Kullanicilar> GetAll()
         {
-            return db.Kullanicilar.Where(x => x.isDeleted == false).ToList();
+            return db.Kullanicilar.ToList();
         }
 
         public Kullanicilar GetById(int id)

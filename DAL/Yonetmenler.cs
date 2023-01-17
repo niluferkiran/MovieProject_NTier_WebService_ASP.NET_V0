@@ -17,7 +17,6 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Yonetmenler()
         {
-            this.Diziler = new HashSet<Diziler>();
             this.Filmler = new HashSet<Filmler>();
         }
     
@@ -27,8 +26,6 @@ namespace DAL
         public Nullable<System.DateTime> DogumTarihi { get; set; }
         public string Cinsiyet { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Diziler> Diziler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Filmler> Filmler { get; set; }
     }

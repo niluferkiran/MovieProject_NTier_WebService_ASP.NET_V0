@@ -18,7 +18,7 @@ namespace DAL
         public Filmler()
         {
             this.FilmOyuncular = new HashSet<FilmOyuncular>();
-            this.KullaniciFilmDetay = new HashSet<KullaniciFilmDetay>();
+            this.KullaniciFilmListesi = new HashSet<KullaniciFilmListesi>();
         }
     
         public int FilmId { get; set; }
@@ -42,6 +42,6 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FilmOyuncular> FilmOyuncular { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KullaniciFilmDetay> KullaniciFilmDetay { get; set; }
+        public virtual ICollection<KullaniciFilmListesi> KullaniciFilmListesi { get; set; }
     }
 }

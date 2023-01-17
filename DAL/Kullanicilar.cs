@@ -17,8 +17,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Kullanicilar()
         {
-            this.KullaniciDiziDetay = new HashSet<KullaniciDiziDetay>();
-            this.KullaniciFilmDetay = new HashSet<KullaniciFilmDetay>();
+            this.Duyurular = new HashSet<Duyurular>();
+            this.KullaniciFilmListesi = new HashSet<KullaniciFilmListesi>();
         }
     
         public int KullaniciId { get; set; }
@@ -31,12 +31,11 @@ namespace DAL
         public Nullable<System.DateTime> DogumTarihi { get; set; }
         public string Cinsiyet { get; set; }
         public Nullable<bool> isDeleted { get; set; }
-        public Nullable<bool> isBanned { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KullaniciDiziDetay> KullaniciDiziDetay { get; set; }
+        public virtual ICollection<Duyurular> Duyurular { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KullaniciFilmDetay> KullaniciFilmDetay { get; set; }
+        public virtual ICollection<KullaniciFilmListesi> KullaniciFilmListesi { get; set; }
         public virtual Roller Roller { get; set; }
     }
 }

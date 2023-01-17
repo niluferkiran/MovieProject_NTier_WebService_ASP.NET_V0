@@ -17,7 +17,6 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Oyuncular()
         {
-            this.DiziOyuncular = new HashSet<DiziOyuncular>();
             this.FilmOyuncular = new HashSet<FilmOyuncular>();
         }
     
@@ -29,8 +28,6 @@ namespace DAL
         public string Ulkesi { get; set; }
         public string OyuncuOdulleri { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DiziOyuncular> DiziOyuncular { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FilmOyuncular> FilmOyuncular { get; set; }
     }

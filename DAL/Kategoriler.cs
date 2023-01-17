@@ -17,15 +17,12 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Kategoriler()
         {
-            this.Diziler = new HashSet<Diziler>();
             this.Filmler = new HashSet<Filmler>();
         }
     
         public int KategoriId { get; set; }
         public string KategoriAdi { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Diziler> Diziler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Filmler> Filmler { get; set; }
     }

@@ -33,7 +33,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Kullanıcı Ekle</button>
     </div>
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting">
             <%--AutoGenerateColumns="false" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating"  OnRowDeleting="GridView1_RowDeleting"--%>
             <Columns>
                 <asp:TemplateField>
@@ -219,52 +219,6 @@
             </div>
         </div>
     </div>
-
-
-    <%--<asp:Repeater ID="rptKullanicilar" runat="server">
-        <HeaderTemplate>
-            <thead>
-                <tr>
-                    <th class="head0">Kullanıcı Id</th>
-                    <th class="head1">Kullanıcı Adı</th>
-                    <th class="head0">Kullanıcı Soyadı</th>
-                    <th class="head1">Ulaşım</th>
-                    <th class="head0">Ülke</th>
-                    <th class="head1">Ulaşım</th>
-                    <th class="head0">Ülke</th>
-                    <th class="head1">Ulaşım</th>
-                    <th class="head0">Ülke</th>
-                </tr>
-            </thead>
-            <tbody>
-                         <tr>
-        </HeaderTemplate>
-       <ItemTemplate>
-            <td><%#Eval("KullaniciId") %></td>
-                    <td><%#Eval("KullaniciAdi") %></td>
-                    <td><%#Eval("KullaniciSoyadi") %></td>
-                    <td><%#Eval("Sifre") %></td>
-                    <td><%#Eval("RolId") %></td>
-                    <td><%#Eval("TCKN") %></td>
-                    <td><%#Eval("KullaniciMail") %></td>
-                    <td><%#Eval("DogumTarihi") %></td>
-                    <td><%#Eval("Cinsiyet") %></td>
-                    <td><%#Eval("isDeleted") %></td>
-       </ItemTemplate>
-        <FooterTemplate>
-            </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th class="head0">Rendering engine</th>
-                    <th class="head1">Browser</th>
-                    <th class="head0">Platform(s)</th>
-                    <th class="head1">Engine version</th>
-                    <th class="head0">CSS grade</th>
-                </tr>
-            </tfoot>
-        </FooterTemplate>
-    </asp:Repeater>--%>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />

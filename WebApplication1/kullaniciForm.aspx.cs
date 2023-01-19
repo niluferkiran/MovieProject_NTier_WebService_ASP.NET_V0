@@ -24,5 +24,10 @@ namespace WebApplication1
             GridView1.DataSource = kulRepo.GetAll();
             GridView1.DataBind();
         }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Label id = GridView1.Rows[e.RowIndex].FindControl("lblKullaniciId") as Label;
+        }
     }
 }

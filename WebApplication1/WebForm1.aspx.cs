@@ -53,8 +53,8 @@ namespace WebApplication1
                             if (kullanici.RolId == 4) //|| kullanici.RolId == 3
                             {
                                 //doğru çalışmıyor fakat buraya kadar olan kısım doğru
-                                string message = "Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız";
-                                string title = "Editör girişi";
+                                //string message = "Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız";
+                                //string title = "Editör girişi";
                                 Server.Transfer("kullaniciForm.aspx");
                                 ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız'); window.location = '" + Page.ResolveUrl("~/kullaniciForm.aspx") + "';", true);
                             }

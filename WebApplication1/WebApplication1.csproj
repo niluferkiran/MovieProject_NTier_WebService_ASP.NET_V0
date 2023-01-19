@@ -100,6 +100,7 @@
     <Content Include="CSS\cover.css" />
     <Content Include="CSS\Filmler.css" />
     <Content Include="Diziler.aspx" />
+    <Content Include="Duyurular.aspx" />
     <Content Include="filmForm.aspx" />
     <Content Include="Filmler.aspx" />
     <Content Include="Game1.aspx" />
@@ -117,6 +118,7 @@
     <Content Include="KarsilamaSayfasi.aspx" />
     <Content Include="KullaniciAnasayfa.aspx" />
     <Content Include="kullaniciForm.aspx" />
+    <Content Include="Oyuncular.aspx" />
     <Content Include="Style.css" />
     <Content Include="TryMeLoL.aspx" />
     <Content Include="TryMeLoL.css" />
@@ -178,6 +180,13 @@
     <Compile Include="Diziler.aspx.designer.cs">
       <DependentUpon>Diziler.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Duyurular.aspx.cs">
+      <DependentUpon>Duyurular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Duyurular.aspx.designer.cs">
+      <DependentUpon>Duyurular.aspx</DependentUpon>
+    </Compile>
     <Compile Include="filmForm.aspx.cs">
       <DependentUpon>filmForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,6 +235,13 @@
     </Compile>
     <Compile Include="kullaniciForm.aspx.designer.cs">
       <DependentUpon>kullaniciForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Oyuncular.aspx.cs">
+      <DependentUpon>Oyuncular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oyuncular.aspx.designer.cs">
+      <DependentUpon>Oyuncular.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TryMeLoL.aspx.cs">

@@ -49,15 +49,20 @@ namespace WebApplication1
                         if (kullanici.Sifre == sifre2)
                         {
                             attempt = 0;
-                            ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Giriş başarılı.')", true);
-                            //Response.Redirect("KullaniciAnasayfa.aspx");
                             ID = kullanici.KullaniciId;
                             if (kullanici.RolId == 4) //|| kullanici.RolId == 3
                             {
                                 //doğru çalışmıyor fakat buraya kadar olan kısım doğru
                                 string message = "Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız";
                                 string title = "Editör girişi";
-                                ClientScript.RegisterStartupScript(this.GetType(), title, "alert('Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız'); window.location = '" + Page.ResolveUrl("~/kullaniciForm.aspx") + "';", true);
+                                Server.Transfer("kullaniciForm.aspx");
+                                ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız'); window.location = '" + Page.ResolveUrl("~/kullaniciForm.aspx") + "';", true);
+                            }
+                            else
+                            {
+                                ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Giriş başarılı.')", true);
+                                //Response.Redirect("KullaniciAnasayfa.aspx");
+                                Server.Transfer("KullaniciAnasayfa.aspx");
                             }
                         }
                     }

@@ -47,14 +47,14 @@
                 <img src="images/logomod2232rn.JPG" />
             </div>
             <div class="form-group">
-                <asp:Label ID="Label1" runat="server" Text="Label">Email:</asp:Label>
-                <%-- <label for="email">Email:</label>--%>
+                <%--<asp:Label ID="Label1" runat="server" Text="Label">Email:</asp:Label>--%>
+                 <label for="email">Email:</label>
                 <%--<asp:TextBox ID="txtKullaniciEmail" runat="server" CssClass="form-control"></asp:TextBox>--%>
                 <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="" />
             </div>
             <div class="form-group">
-                <asp:Label ID="Label2" runat="server" Text="Label">Password:</asp:Label>
-                <%--                <label for="pwd">Password:</label>--%>
+                <%--<asp:Label ID="Label2" runat="server" Text="Label">Password:</asp:Label>--%>
+                <label for="pwd">Password:</label>
                 <%--<asp:TextBox ID="txtSifre" runat="server" CssClass="form-control"></asp:TextBox>--%>
                 <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" value="" />
             </div>

@@ -62,6 +62,7 @@ namespace WebApplication1
                             {
                                 ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Giriş başarılı.')", true);
                                 //Response.Redirect("KullaniciAnasayfa.aspx");
+
                                 Server.Transfer("KullaniciAnasayfa.aspx");
                             }
                         }

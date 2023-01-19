@@ -13,7 +13,8 @@ namespace WebApplication1
         FilmRepository filmRepo = new FilmRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack) return;
+            int formId = WebForm1.ID;
 
         }
     }

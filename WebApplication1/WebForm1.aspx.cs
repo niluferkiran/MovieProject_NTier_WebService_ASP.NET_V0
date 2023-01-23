@@ -56,8 +56,9 @@ namespace WebApplication1
                                 //doğru çalışmıyor fakat buraya kadar olan kısım doğru
                                 //string message = "Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız";
                                 //string title = "Editör girişi";
-                                Server.Transfer("kullaniciForm.aspx");
-                                ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız'); window.location = '" + Page.ResolveUrl("~/kullaniciForm.aspx") + "';", true);
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), "alert('Record saved successfully.');window.location='kullaniciForm.aspx';", true);
+                                //Server.Transfer("kullaniciForm.aspx");
+                                //ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız'); window.location = '" + Page.ResolveUrl("~/kullaniciForm.aspx") + "';", true);
                             }
                             else
                             {

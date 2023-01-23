@@ -1,5 +1,6 @@
 ﻿using BLL;
 using BLL.Repositories;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace WebApplication1
     public partial class WebForm1 : System.Web.UI.Page
     {
         KullaniciRepository kulRepo = new KullaniciRepository();
-        
+        Kullanicilar secilen;
         public static int ID;
         static int attempt = 3;
         protected void Page_Load(object sender, EventArgs e)
@@ -65,6 +66,18 @@ namespace WebApplication1
 
                                 Server.Transfer("KullaniciAnasayfa.aspx");
                             }
+                        }
+                        else if ((attempt == 3) || (attempt > 0))
+                        {
+                            ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Yalnızca " + Convert.ToString(attempt) + "  kere giriş hakkınız kaldı.')", true);
+                            --attempt;
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Hesabınız kitlendi.Şifrenizi[Şifremi unuttum] linkinden sıfırlayarak hesabınıza giriş yapabilirsiniz.İlgili bilgilere ulaşmak için asdsdsassds@outlook.com mail adresiyle iletişime geçebilirsiniz.')", true);
+                            secilen = kulRepo.GetById(kullanici.KullaniciId);
+                            secilen.isDeleted = true;
+                            kulRepo.Update(secilen);
                         }
                     }
                     else

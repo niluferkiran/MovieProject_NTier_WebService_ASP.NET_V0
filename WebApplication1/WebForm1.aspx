@@ -16,6 +16,11 @@
             background-color: black;
             /*#2d2926FF*/
         }
+        h1{
+            color:aliceblue;
+            justify-content:center;
+            display:flex;
+        }
 
         body {
             display: flex;
@@ -30,13 +35,13 @@
         .container {
             height: 500px;
             width: 400px;
-            border: 2px solid #E94B3CFF;
+            border: 2px solid #9B04FF;
             border-radius: 5px;
             padding: 20px;
         }
 
             .container:hover {
-                box-shadow: 0px 5px 10px 5px #E94B3CFF;
+                box-shadow: 0px 5px 10px 5px #9B04FF;
             }
     </style>
 </head>
@@ -44,34 +49,112 @@
     <form id="form1" runat="server">
         <div class="container">
             <div class="form-group">
-                <img src="images/logomod2232rn.JPG" />
+               <h1>LOGIN</h1>
             </div>
             <div class="form-group">
-                <%--<asp:Label ID="Label1" runat="server" Text="Label">Email:</asp:Label>--%>
-                 <label for="email">Email:</label>
-                <%--<asp:TextBox ID="txtKullaniciEmail" runat="server" CssClass="form-control"></asp:TextBox>--%>
+                <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="" />
             </div>
             <div class="form-group">
-                <%--<asp:Label ID="Label2" runat="server" Text="Label">Password:</asp:Label>--%>
                 <label for="pwd">Password:</label>
-                <%--<asp:TextBox ID="txtSifre" runat="server" CssClass="form-control"></asp:TextBox>--%>
                 <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" value="" />
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember" />
+                    <input class="form-check-input" type="checkbox" name="remember" color="aliceblue"/>
                     Remember me
                 </label>
-                <asp:LinkButton ID="lnkSifremiUnuttum" runat="server"><a href="404.aspx">Şifremi unuttum</a></asp:LinkButton>
                 <br />
-                Üye değil misin? 
-            <asp:LinkButton ID="LinkButton1" runat="server">Üye ol</asp:LinkButton>
+                <asp:LinkButton ID="lnkSifremiUnuttum" runat="server"><a href="404.aspx">Şifremi unuttum</a></asp:LinkButton>
+                  <br />
+                    Üye değil misin?
+                <linkbutton type="button" data-toggle="modal" data-target="#exampleModal" class="alert-primary">example</linkbutton>
+                <%--<asp:LinkButton ID="LinkButton1" runat="server">Üye ol</asp:LinkButton>--%>
             </div>
             <asp:Button ID="Button1" runat="server" Text="Giriş" BorderStyle="None" OnClick="Button1_Click" CommandName="Giris" CommandArgument='<%#Eval("KullaniciId") %>' />
 
             <%--<button type="submit" class="btn btn-primary"><a href="KullaniciAnasayfa.aspx">Giriş</a></button>--%>
         </div>
+
+
+        <div>
+            <div id="exampleModal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Kullanıcı Ekleme Formu</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <section class="section">
+                            <div class="section-header">
+                            </div>
+                            <div class="section-body">
+                                <div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <b>Kullanıcı Adı : </b>
+                                                <br />
+                                                <asp:TextBox ID="txtAd" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <b>Kullanıcı Soyadı : </b>
+                                                <br />
+                                                <asp:TextBox ID="txtSoyadi" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <b>Şifre : </b>
+                                                <br />
+                                                <asp:TextBox ID="txtSifre" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <b>TCKN : </b>
+                                                <br />
+                                                <asp:TextBox ID="txttc" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <b>Mail : </b>
+                                                <br />
+                                                <asp:TextBox ID="txtMail" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <b>Doğum Tarihi : </b>
+                                                <br />
+                                                <asp:TextBox ID="txtdate" type="date" CssClass="form-control" runat="server"></asp:TextBox>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <b>Cinsiyet : </b>
+                                                <br />
+                                                <br />
+                                                <asp:RadioButton ID="cinsK" GroupName="Cins" runat="server" Text="K" />
+                                                <br />
+                                                <asp:RadioButton ID="cinsE" GroupName="Cins" runat="server" Text="E" />
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="modal-footer">
+                            <%--OnClick="btnKaydet_Click"--%>
+                            <%--         <asp:Button ID="bTNKaydet" runat="server" Text="Kaydet" OnClick="bTNKaydet_Click" />--%>
+                            <asp:Button ID="btnKapat" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

@@ -16,6 +16,8 @@ namespace WebApplication1
             if (IsPostBack) return;
             int formId = WebForm1.ID;
 
+            int id = Label1.ID.Count();
+            Label1.Text = filmRepo.GetById(id).FilmAdi;
             
 
         }

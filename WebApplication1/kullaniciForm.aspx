@@ -33,7 +33,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Kullanıcı Ekle</button>
     </div>
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit">
             <%--AutoGenerateColumns="false" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating"  OnRowDeleting="GridView1_RowDeleting"--%>
             <Columns>
                 <asp:TemplateField>
@@ -195,9 +195,9 @@
                                             <b>Cinsiyet : </b>
                                             <br />
                                             <br />
-                                            <asp:RadioButton ID="cinsK" GroupName="Cins" runat="server" Text="Kadın" />
+                                            <asp:RadioButton ID="cinsK" GroupName="Cins" runat="server" Text="K" />
                                             <br />
-                                            <asp:RadioButton ID="cinsE" GroupName="Cins" runat="server" Text="Erkek" />
+                                            <asp:RadioButton ID="cinsE" GroupName="Cins" runat="server" Text="E" />
 
                                         </div>
 
@@ -210,7 +210,7 @@
 
                     <div class="modal-footer">
                          <%--OnClick="btnKaydet_Click"--%> 
-                        <asp:Button ID="btnKaydet" runat="server" Text="Kaydet"/>
+                        <asp:Button ID="bTNKaydet" runat="server" Text="Kaydet" OnClick="bTNKaydet_Click"/>
                         <asp:Button ID="btnKapat" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />
                         <br />
 

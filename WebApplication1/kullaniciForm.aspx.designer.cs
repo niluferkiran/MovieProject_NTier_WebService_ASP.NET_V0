@@ -105,13 +105,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.RadioButton cinsE;
 
         /// <summary>
-        /// btnKaydet control.
+        /// bTNKaydet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnKaydet;
+        protected global::System.Web.UI.WebControls.Button bTNKaydet;
 
         /// <summary>
         /// btnKapat control.

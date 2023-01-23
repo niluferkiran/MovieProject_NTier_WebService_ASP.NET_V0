@@ -16,7 +16,8 @@ namespace WebApplication1
             if (IsPostBack) return;
 
             int formId = WebForm1.ID;
-            Label1.Text = kulRepo.GetById(formId).KullaniciAdi;
+            Application["Ad"] = kulRepo.GetById(formId).KullaniciAdi;
+            Label1.Text = Application["Ad"].ToString();
             //Label1.Text = Convert.ToString(WebForm1.ID);
         }
     }

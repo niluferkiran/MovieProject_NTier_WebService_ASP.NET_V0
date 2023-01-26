@@ -47,7 +47,7 @@ namespace WebApplication1
                     if (kullanici != null)
                     {
                         //Sifreleme.MD5Sifrele(sifre2)
-                        if (kullanici.Sifre == sifre2)
+                        if (kullanici.Sifre == Sifreleme.MD5Sifrele(sifre2))
                         {
                             attempt = 0;
                             ID = kullanici.KullaniciId;
@@ -89,6 +89,68 @@ namespace WebApplication1
                 }
             }
 
+        }
+
+        int yaS;
+        int rolId;
+        protected void btnKaydol_Click(object sender, EventArgs e)
+        {
+            
+            string kullaniciAdi = txtAd.Text;
+            string kullaniciSoyad = txtSoyadi.Text;
+            string sifre = txtSifre.Text;
+            string tckn = txttc.Text;
+            string mail = txtMail.Text;
+            DateTime dogumTarihi = Convert.ToDateTime(txtdate.Text);
+            string cinsiyet = "";
+            if (cinsE.Checked == true)
+            {
+                cinsiyet = cinsE.Text;
+            }
+            else if (cinsK.Checked == true)
+            {
+                cinsiyet = cinsK.Text;
+            }
+            if (yaS < 18)
+            {
+                rolId = 2;
+            }
+            else
+            {
+                rolId = 1;
+            }
+            int RolID = rolId;
+
+
+            kulRepo.Insert(new DAL.Kullanicilar
+            {
+                KullaniciAdi = kullaniciAdi,
+                KullaniciSoyadi = kullaniciSoyad,
+                Sifre = sifre,
+                RolId = RolID,
+                TCKN = tckn,
+                KullaniciMail = mail,
+                DogumTarihi = dogumTarihi,
+                Cinsiyet = cinsiyet,
+                isDeleted = false
+            });
+        }
+
+        private void dtpDogumTarihi_ValueChanged(object sender, EventArgs e)
+        {
+            TimeSpan fark;
+            int yas;
+            DateTime dogumtarihi;
+            dogumtarihi = Convert.ToDateTime(txtdate.Text);
+            fark = DateTime.Now.Date.Subtract(dogumtarihi);
+            yas = Convert.ToInt32(fark.TotalDays);
+            yaS = yas / 365;
+        }
+        MailGonderici mg = new MailGonderici();
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            mg.Email(TextBox1.Text);
         }
     }
 }

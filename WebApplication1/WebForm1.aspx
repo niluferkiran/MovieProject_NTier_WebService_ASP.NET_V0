@@ -65,7 +65,7 @@
                     Remember me
                 </label>
                 <br />
-                <asp:LinkButton ID="lnkSifremiUnuttum" runat="server"><a href="404.aspx">Şifremi unuttum</a></asp:LinkButton>
+                <asp:LinkButton ID="lnkSifremiUnuttum" runat="server" data-toggle="modal" data-target="#exampleModal2" class="alert-primary">Şifremi unuttum</asp:LinkButton>
                   <br />
                     Üye değil misin?
                 <linkbutton type="button" data-toggle="modal" data-target="#exampleModal" class="alert-primary">example</linkbutton>
@@ -146,7 +146,52 @@
                         <div class="modal-footer">
                             <%--OnClick="btnKaydet_Click"--%>
                             <%--         <asp:Button ID="bTNKaydet" runat="server" Text="Kaydet" OnClick="bTNKaydet_Click" />--%>
+                            <asp:Button ID="btnKaydol" runat="server" Text="Kaydol" OnClick="btnKaydol_Click" />
                             <asp:Button ID="btnKapat" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="exampleModal2" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Şifre Sıfırlama Formu</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <section class="section">
+                            <div class="section-header">
+                            </div>
+                            <div class="section-body">
+                                <div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <b>Mail : </b>
+                                                <br />
+                                                <asp:TextBox ID="TextBox1" runat="server"  CssClass="form-control"></asp:TextBox>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="modal-footer">
+                            <%--OnClick="btnKaydet_Click"--%>
+                            <%--         <asp:Button ID="bTNKaydet" runat="server" Text="Kaydet" OnClick="bTNKaydet_Click" />--%>
+                            <asp:Button ID="Button2" runat="server" Text="Şifre Sıfırla" OnClick="Button2_Click"/>
+                            <asp:Button ID="Button3" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />
                             <br />
 
                         </div>

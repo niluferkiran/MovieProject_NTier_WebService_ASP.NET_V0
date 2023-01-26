@@ -126,7 +126,7 @@ namespace WebApplication1
             {
                 KullaniciAdi = kullaniciAdi,
                 KullaniciSoyadi = kullaniciSoyad,
-                Sifre = sifre,
+                Sifre = Sifreleme.MD5Sifrele(sifre),
                 RolId = RolID,
                 TCKN = tckn,
                 KullaniciMail = mail,

@@ -152,5 +152,23 @@ namespace WebApplication1
         {
             mg.Email(TextBox1.Text);
         }
+
+        //public void sifreleriGuncelle()
+        //{
+        //    var kullanicilar = kulRepo.GetAll().ToList();
+        //    List<Kullanicilar> sh = new List<Kullanicilar>();
+        //    foreach (var kullanici in kullanicilar)
+        //    {
+        //        kullanici.Sifre = Sifreleme.MD5Sifrele("12345678");
+        //        var secilen = kulRepo.GetById(Convert.ToInt32(kullanici.KullaniciId));
+        //        sh.Add(new Kullanicilar
+        //        {
+        //            Sifre = Sifreleme.MD5Sifrele("12345678")
+        //        });
+        //    }
+        //    kulRepo.Update(sh);
+        //    db.SifrelerVeHashler.AddRange(sh);
+        //    db.SaveChanges();
+        //}
     }
 }

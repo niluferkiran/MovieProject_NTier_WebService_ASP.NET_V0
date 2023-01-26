@@ -26,11 +26,44 @@ namespace WebApplication1
 
             Repeater2.DataBind();
 
+            Repeater1.DataSource = filmRepo.GetAll().Select(f => new {
+                f.FilmAdi,
+                f.Konusu,
+                f.FilmResim,
+                f.FilmOdul,
+                f.FilmOyuncular,
+                f.FilmSuresi,
+                f.FragmanSuresi,
+                f.FragmanVideo,
+                f.Ulkesi,
+                f.Yonetmenler.YonetmenAdi,
+                f.Kategoriler.KategoriAdi
+            }).ToList();
+
+            Repeater1.DataBind();
+
+
+
+
+
             ////id yanlış çalışabilir, değiştir
             //int id = Label1.ID.Count();
             //Label1.Text = filmRepo.GetById(id).FilmAdi;
             
 
+        }
+
+        protected void lnkUploadPics_Click(object sender, EventArgs e)
+        {
+            //int ID = 
+            //var filmler = filmRepo.GetAll().Select(f => new {
+            //    f.FilmAdi,
+            //    f.Konusu
+            //}).ToList();
+
+            ////string filmKonusu = Request.Form["FilmKonusu"];
+
+            //Label2.Text = filmRepo.GetById();
         }
     }
 }

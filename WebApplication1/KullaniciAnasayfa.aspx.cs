@@ -16,8 +16,19 @@ namespace WebApplication1
             if (IsPostBack) return;
             int formId = WebForm1.ID;
 
-            int id = Label1.ID.Count();
-            Label1.Text = filmRepo.GetById(id).FilmAdi;
+
+            Repeater2.DataSource = filmRepo.GetAll().Select(f => new 
+                { 
+            f.FilmAdi,
+            f.Konusu,
+            f.FilmResim
+            }).ToList();
+
+            Repeater2.DataBind();
+
+            ////id yanlış çalışabilir, değiştir
+            //int id = Label1.ID.Count();
+            //Label1.Text = filmRepo.GetById(id).FilmAdi;
             
 
         }

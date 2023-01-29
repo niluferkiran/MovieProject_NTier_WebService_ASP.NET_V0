@@ -21,7 +21,9 @@ namespace WebApplication1
         {
             if (IsPostBack) return;
             Session["id"] = null;
-            
+            Session.RemoveAll();
+            Session.Abandon();
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)

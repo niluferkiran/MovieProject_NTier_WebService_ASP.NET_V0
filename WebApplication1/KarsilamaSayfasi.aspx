@@ -11,7 +11,15 @@
     <title>Olmuyor Cover</title>
     <link href="CSS/cover.css" rel="stylesheet" />
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
-
+    <script language="javascript" type="text/javascript">
+        function DisableBackButton() {
+            window.history.forward()
+        }
+        DisableBackButton();
+        window.onload = DisableBackButton;
+        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+        window.onunload = function () { void (0) }
+    </script>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;

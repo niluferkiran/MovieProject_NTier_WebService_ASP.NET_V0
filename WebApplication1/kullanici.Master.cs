@@ -45,6 +45,8 @@ namespace WebApplication1
             Session.RemoveAll();
             Session.Abandon();
             //Response.Redirect("WebForm1.aspx");
+            //string prevPage = Request.UrlReferrer.ToString();
+            //Response.Redirect(prevPage);
             Response.Redirect("KarsilamaSayfasi.aspx?mode=logout");
 
             //FormsAuthentication.SignOut();

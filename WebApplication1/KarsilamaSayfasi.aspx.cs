@@ -14,6 +14,8 @@ namespace WebApplication1
             if (!Page.IsPostBack)
             {
                 Session["id"] = null;
+                Session.RemoveAll();
+                Session.Abandon();
                 //HttpContext.Current.Session.Clear();
                 //HttpContext.Current.Session.Abandon();
                 //HttpContext.Current.User = null;
@@ -23,7 +25,17 @@ namespace WebApplication1
                 //Session.Remove("email");
                 //Session.Remove("sifre");
                 //Response.Redirect("WebForm1.aspx");
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+                Response.Cache.SetNoStore();
             }
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+            Response.Cache.SetNoStore();
         }
     }
 }

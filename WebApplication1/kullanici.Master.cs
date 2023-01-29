@@ -15,13 +15,20 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
+            if (Session["id"] != null)
+            {
+                int formId = WebForm1.ID;
+                //Session["Ad"] = kulRepo.GetById(formId).KullaniciAdi;
+                //Session["email"] = kulRepo.GetById(formId).KullaniciMail;
+                //Session["sifre"] = kulRepo.GetById(formId).Sifre;
 
-            int formId = WebForm1.ID;
-            Session["Ad"] = kulRepo.GetById(formId).KullaniciAdi;
-            Session["email"] = kulRepo.GetById(formId).KullaniciMail;
-            Session["sifre"] = kulRepo.GetById(formId).Sifre;
-
-            Label1.Text = Session["Ad"].ToString();
+                Label1.Text = Session["id"].ToString();
+            }
+            else
+            {
+                Response.Redirect("WebForm1.aspx");
+            }
+          
             //Label1.Text = Convert.ToString(WebForm1.ID);
             //if (Membership.GetUser() != null)
             //{
@@ -34,10 +41,15 @@ namespace WebApplication1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Session["id"] = null;
+            Session.RemoveAll();
+            Session.Abandon();
+            //Response.Redirect("WebForm1.aspx");
+            Response.Redirect("KarsilamaSayfasi.aspx?mode=logout");
 
-            FormsAuthentication.SignOut();
+            //FormsAuthentication.SignOut();
 
-            Response.Redirect("WebForm1.aspx");
+            //Response.Redirect("WebForm1.aspx");
 
             //if (Membership.GetUser() != null) 
             //{

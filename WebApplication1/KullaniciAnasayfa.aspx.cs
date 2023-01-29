@@ -14,33 +14,41 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-            int formId = WebForm1.ID;
+            if (Session["id"] != null) 
+            {
+                int formId = WebForm1.ID;
 
 
-            Repeater2.DataSource = filmRepo.GetAll().Select(f => new 
-                { 
-            f.FilmAdi,
-            f.Konusu,
-            f.FilmResim
-            }).ToList();
+                Repeater2.DataSource = filmRepo.GetAll().Select(f => new
+                {
+                    f.FilmAdi,
+                    f.Konusu,
+                    f.FilmResim
+                }).ToList();
 
-            Repeater2.DataBind();
+                Repeater2.DataBind();
 
-            Repeater1.DataSource = filmRepo.GetAll().Select(f => new {
-                f.FilmAdi,
-                f.Konusu,
-                f.FilmResim,
-                f.FilmOdul,
-                f.FilmOyuncular,
-                f.FilmSuresi,
-                f.FragmanSuresi,
-                f.FragmanVideo,
-                f.Ulkesi,
-                f.Yonetmenler.YonetmenAdi,
-                f.Kategoriler.KategoriAdi
-            }).ToList();
+                Repeater1.DataSource = filmRepo.GetAll().Select(f => new {
+                    f.FilmAdi,
+                    f.Konusu,
+                    f.FilmResim,
+                    f.FilmOdul,
+                    f.FilmOyuncular,
+                    f.FilmSuresi,
+                    f.FragmanSuresi,
+                    f.FragmanVideo,
+                    f.Ulkesi,
+                    f.Yonetmenler.YonetmenAdi,
+                    f.Kategoriler.KategoriAdi
+                }).ToList();
 
-            Repeater1.DataBind();
+                Repeater1.DataBind();
+            }
+            else
+            {
+                Response.Redirect("WebForm1.aspx");
+            }
+               
 
 
 

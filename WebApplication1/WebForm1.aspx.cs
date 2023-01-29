@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace WebApplication1
 {
     public partial class WebForm1 : System.Web.UI.Page
@@ -19,7 +20,7 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-
+            Session["id"] = null;
             
         }
 
@@ -53,19 +54,22 @@ namespace WebApplication1
                             ID = kullanici.KullaniciId;
                             if (kullanici.RolId == 4) //|| kullanici.RolId == 3
                             {
+                                Session["id"] = email2;
                                 //doğru çalışmıyor fakat buraya kadar olan kısım doğru
                                 //string message = "Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız";
                                 //string title = "Editör girişi";
                                 ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), "alert('Record saved successfully.');window.location='kullaniciForm.aspx';", true);
                                 //Server.Transfer("kullaniciForm.aspx");
                                 //ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız'); window.location = '" + Page.ResolveUrl("~/kullaniciForm.aspx") + "';", true);
+                                Session.RemoveAll();
                             }
                             else
                             {
+                                Session["id"] = email2;
                                 ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Giriş başarılı.')", true);
                                 //Response.Redirect("KullaniciAnasayfa.aspx");
-
-                                Server.Transfer("KullaniciAnasayfa.aspx");
+                                Response.Redirect("KullaniciAnasayfa.aspx");
+                                Session.RemoveAll();
                             }
                         }
                         else if ((attempt == 3) || (attempt > 0))

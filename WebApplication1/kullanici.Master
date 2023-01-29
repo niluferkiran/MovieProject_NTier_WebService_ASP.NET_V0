@@ -4,6 +4,13 @@
 
 <html lang="en">
 <head runat="server">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="cache-control" content="must-revalidate" />
+    <meta http-equiv="cache-control" content="proxy-revalidate" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
     <title>MovieBox || Anasayfa</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -134,7 +141,8 @@
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                            aria-expanded="false" id="kullaniciAdi"> <asp:Label ID="Label1" runat="server" Text='<%#Eval("KullaniciAdi") %>'></asp:Label></a>
+                                            aria-expanded="false" id="kullaniciAdi">
+                                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("KullaniciAdi") %>'></asp:Label></a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="#">Kullanıcı Ayarları</a></li>
                                             <li><a class="dropdown-item" href="404.aspx">Dene ve gör</a></li>
@@ -144,14 +152,14 @@
                                                 <hr class="dropdown-divider">
                                             </li>
                                             <li><a class="dropdown-item" href="KarsilamaSayfasi.aspx">
-                                                <asp:Button ID="Button1" runat="server" Text="Çıkış Yap" OnClick="Button1_Click"/></a></li>
+                                                <asp:Button ID="Button1" runat="server" Text="Çıkış Yap" OnClick="Button1_Click" /></a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
             </nav>
 
             <div class="content">
@@ -176,7 +184,7 @@
                 <p>MovieBox &copy; 2023</p>
 
             </div>
-           
+
         </footer>
     </form>
 </body>

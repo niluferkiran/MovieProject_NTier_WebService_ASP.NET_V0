@@ -23,14 +23,28 @@ namespace WebApplication1
 
             Label1.Text = Session["Ad"].ToString();
             //Label1.Text = Convert.ToString(WebForm1.ID);
+            //if (Membership.GetUser() != null)
+            //{
+            //    Session.Abandon();
+            //    Response.Redirect("WebForm1.aspx");
+            //}
+            //else Response.Redirect("WebForm1.aspx");
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            HttpContext.Current.Session.Clear();
-            HttpContext.Current.Session.Abandon();
-            Session["Ad"] = null;
+            FormsAuthentication.SignOut();
+
+            Response.Redirect("WebForm1.aspx");
+
+            //if (Membership.GetUser() != null) 
+            //{
+            //    Session.Abandon();
+            //    Response.Redirect("WebForm1.aspx");
+            //}  
+            //else Response.Redirect("WebForm1.aspx");
             //Response.Redirect("KarsilamaSayfasi.aspx");
 
             //Session.Clear();

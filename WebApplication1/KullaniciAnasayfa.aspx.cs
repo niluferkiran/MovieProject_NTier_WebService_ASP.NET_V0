@@ -55,15 +55,17 @@ namespace WebApplication1
 
         protected void lnkUploadPics_Click(object sender, EventArgs e)
         {
-            //int ID = 
-            //var filmler = filmRepo.GetAll().Select(f => new {
-            //    f.FilmAdi,
-            //    f.Konusu
-            //}).ToList();
+            int ID = filmRepo.GetAll().Count;
+            
+            var filmler = filmRepo.GetAll().Select(f => new
+            {
+                f.FilmAdi,
+                f.Konusu
+            }).ToList();
 
             ////string filmKonusu = Request.Form["FilmKonusu"];
 
-            //Label2.Text = filmRepo.GetById();
+            Label2.Text = filmRepo.GetById(ID).Konusu.ToString();
         }
     }
 }

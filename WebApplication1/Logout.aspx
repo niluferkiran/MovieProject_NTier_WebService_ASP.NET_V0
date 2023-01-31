@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication1.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Logout.aspx.cs" Inherits="WebApplication1.Logout" %>
 
 <!DOCTYPE html>
 
@@ -73,13 +73,13 @@
                     Remember me
                 </label>
                 <br />
-                <asp:LinkButton ID="lnkSifremiUnuttum" runat="server" data-toggle="modal" data-target="#exampleModal2" class="alert-primary">Şifremi unuttum</asp:LinkButton>
+              <%--  <asp:LinkButton ID="lnkSifremiUnuttum" runat="server" data-toggle="modal" data-target="#exampleModal2" class="alert-primary">Şifremi unuttum</asp:LinkButton>
                   <br />
                     Üye değil misin?
                 <linkbutton type="button" data-toggle="modal" data-target="#exampleModal" class="alert-primary">example</linkbutton>
                 <%--<asp:LinkButton ID="LinkButton1" runat="server">Üye ol</asp:LinkButton>--%>
             </div>
-            <asp:Button ID="Button1" runat="server" Text="Giriş" BorderStyle="None" OnClick="Button1_Click" CommandName="Giris" CommandArgument='<%#Eval("KullaniciId") %>' />
+            <%--<asp:Button ID="Button1" runat="server" Text="Giriş" BorderStyle="None" OnClick="Button1_Click" CommandName="Giris" CommandArgument='<%#Eval("KullaniciId") %>' />--%>--%>
 
             <%--<button type="submit" class="btn btn-primary"><a href="KullaniciAnasayfa.aspx">Giriş</a></button>--%>
         </div>
@@ -154,8 +154,8 @@
                         <div class="modal-footer">
                             <%--OnClick="btnKaydet_Click"--%>
                             <%--         <asp:Button ID="bTNKaydet" runat="server" Text="Kaydet" OnClick="bTNKaydet_Click" />--%>
-                            <asp:Button ID="btnKaydol" runat="server" Text="Kaydol" OnClick="btnKaydol_Click" />
-                            <asp:Button ID="btnKapat" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />
+                         <%--   <asp:Button ID="btnKaydol" runat="server" Text="Kaydol" OnClick="btnKaydol_Click" />
+                            <asp:Button ID="btnKapat" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />--%>
                             <br />
 
                         </div>
@@ -198,8 +198,8 @@
                         <div class="modal-footer">
                             <%--OnClick="btnKaydet_Click"--%>
                             <%--         <asp:Button ID="bTNKaydet" runat="server" Text="Kaydet" OnClick="bTNKaydet_Click" />--%>
-                            <asp:Button ID="Button2" runat="server" Text="Şifre Sıfırla" OnClick="Button2_Click"/>
-                            <asp:Button ID="Button3" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />
+               <%--             <asp:Button ID="Button2" runat="server" Text="Şifre Sıfırla" OnClick="Button2_Click"/>
+                            <asp:Button ID="Button3" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />--%>
                             <br />
 
                         </div>

@@ -20,9 +20,6 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-            Session["id"] = null;
-            Session.RemoveAll();
-            Session.Abandon();
 
         }
 
@@ -56,7 +53,7 @@ namespace WebApplication1
                             ID = kullanici.KullaniciId;
                             if (kullanici.RolId == 4) //|| kullanici.RolId == 3
                             {
-                                Session["id"] = email2;
+                                Session["id"] = kullanici.KullaniciAdi;
                                 //doğru çalışmıyor fakat buraya kadar olan kısım doğru
                                 //string message = "Editör olarak girmek için Yes'e Kullanıcı olarak girmek için No'ya basınız";
                                 //string title = "Editör girişi";
@@ -67,7 +64,7 @@ namespace WebApplication1
                             }
                             else
                             {
-                                Session["id"] = email2;
+                                Session["id"] = kullanici.KullaniciAdi;
                                 ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "ClientScript", "alert('Giriş başarılı.')", true);
                                 //Response.Redirect("KullaniciAnasayfa.aspx");
                                 Response.Redirect("KullaniciAnasayfa.aspx");

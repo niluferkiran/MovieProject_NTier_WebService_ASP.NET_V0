@@ -41,17 +41,17 @@ namespace WebApplication1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Session["id"] = null;
+            //Session["id"] = null;
             Session.RemoveAll();
             Session.Abandon();
             //Response.Redirect("WebForm1.aspx");
             //string prevPage = Request.UrlReferrer.ToString();
             //Response.Redirect(prevPage);
-            Response.Redirect("KarsilamaSayfasi.aspx?mode=logout");
+            //Response.Redirect("KarsilamaSayfasi.aspx?mode=logout");
 
             //FormsAuthentication.SignOut();
 
-            //Response.Redirect("WebForm1.aspx");
+            Response.Redirect("Logout.aspx");
 
             //if (Membership.GetUser() != null) 
             //{

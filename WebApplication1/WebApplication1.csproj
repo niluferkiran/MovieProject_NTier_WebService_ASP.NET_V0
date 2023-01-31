@@ -145,6 +145,7 @@
     <Content Include="KarsilamaSayfasi.aspx" />
     <Content Include="KullaniciAnasayfa.aspx" />
     <Content Include="kullaniciForm.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Oyuncular.aspx" />
     <Content Include="Style.css" />
     <Content Include="TryMeLoL.aspx" />
@@ -262,6 +263,13 @@
     </Compile>
     <Compile Include="kullaniciForm.aspx.designer.cs">
       <DependentUpon>kullaniciForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Oyuncular.aspx.cs">
       <DependentUpon>Oyuncular.aspx</DependentUpon>

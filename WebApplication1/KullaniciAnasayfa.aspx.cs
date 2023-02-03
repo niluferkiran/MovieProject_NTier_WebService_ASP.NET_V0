@@ -23,7 +23,15 @@ namespace WebApplication1
                 {
                     f.FilmAdi,
                     f.Konusu,
-                    f.FilmResim
+                    f.FilmResim,
+                    f.FilmOdul,
+                    f.FilmOyuncular,
+                    f.FilmSuresi,
+                    f.FragmanSuresi,
+                    f.FragmanVideo,
+                    f.Ulkesi,
+                    f.Yonetmenler.YonetmenAdi,
+                    f.Kategoriler.KategoriAdi
                 }).Take(9).Distinct().ToList();
 
                 Repeater2.DataBind();
@@ -60,20 +68,34 @@ namespace WebApplication1
             
 
         }
-
+        //Bu method düzgün çalışmıyor
         protected void lnkUploadPics_Click(object sender, EventArgs e)
         {
-            int ID = filmRepo.GetAll().Count;
-            
-            var filmler = filmRepo.GetAll().Select(f => new
+            string id = (sender as Button).ID;
+            string text = (sender as Button).Text;
+
+            Label2.Text = filmRepo.GetById(sender.ToString().Length).Kategoriler.ToString();
+            Button button = sender as Button;
+            if (button != null)
             {
-                f.FilmAdi,
-                f.Konusu
-            }).ToList();
+                int buttonId = int.Parse(button.ID);
+                var filmler = filmRepo.GetAll().Select(f => new
+                {
+                    f.FilmAdi,
+                    f.Konusu
+                }).ToList();
+
+                Label2.Text = filmRepo.GetById(buttonId).Konusu.ToString();
+            }
+            //int ID = filmRepo.GetAll().Count;
+            //Button button = (Button) lnkUploadPics as Button; 
+            //string buttonId = button.ID;
+
+            
 
             ////string filmKonusu = Request.Form["FilmKonusu"];
 
-            Label2.Text = filmRepo.GetById(ID).Konusu.ToString();
+           
         }
     }
 }

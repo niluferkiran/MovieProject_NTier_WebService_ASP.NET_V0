@@ -3,8 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
+   
 
 
     <main role="main">
@@ -23,8 +22,6 @@
             <HeaderTemplate>
                 <div class="album py-5 bg-light">
                     <div class="container">
-
-
                         <div class="row">
             </HeaderTemplate>
             <ItemTemplate>
@@ -36,7 +33,7 @@
                         <img class="card-img-top" src='<%#Eval("FilmResim")%>.jpg' alt="Card image cap">
                         <div class="card-body">
                             <p class="card-header"><%#Eval("FilmAdi") %></p>
-                      <%--      <p class="card-text"><%#Eval("Konusu") %></p>--%>
+                            <%--      <p class="card-text"><%#Eval("Konusu") %></p>--%>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>
@@ -92,7 +89,7 @@
                 </div>
             </FooterTemplate>
         </asp:Repeater>
-       <%-- <asp:Repeater ID="Repeater1" runat="server">
+        <%-- <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
 
                 <rows>
@@ -267,40 +264,38 @@
                 </div>--%>
 
 
-                <div class="fade modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                        <div class="modal-content">
+        <div class="fade modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
 
-                            <!-- Header -->
-                            <div class="modal-header">
-                                <h2 class="modal-title"><%#Eval("FilmAdi") %></h2>
-                            </div>
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="filmAdi"><%#Eval("FilmAdi") %></h2>
+                    </div>
 
-                            <!-- Body -->
-                            <div class="modal-body">
+                    <!-- Body -->
+                    <div class="modal-body">
 
-                                <div class="card">
-                                    <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Java.png"
-                                        class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Konusu</h5>
-                                        <asp:Label ID="Label2" runat="server" Text='<%#Eval("Konusu") %>'></asp:Label>
-                                        <%-- <p id="FilmKonusu" class="card-text">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Konusu</h5>
+                                <asp:Label ID="Label2" runat="server" Text='<%#Eval("Konusu") %>'></asp:Label>
+                                <%-- <p id="FilmKonusu" class="card-text">
                                             <%#Eval("Konusu") %>
                                         </p>--%>
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <asp:Button ID="Button1" runat="server" Text="Button" CommandName="Close" UseSubmitBehavior="false" />
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
                             </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <asp:Button ID="Button1" runat="server" Text="Button" CommandName="Close" UseSubmitBehavior="false" />
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
-         <%--   </div>
+            </div>
+        </div>
+        <%--   </div>
         </div>--%>
     </main>
 

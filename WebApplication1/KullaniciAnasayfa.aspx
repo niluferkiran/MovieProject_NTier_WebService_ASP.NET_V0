@@ -20,31 +20,38 @@
         </section>
 
         <asp:Repeater ID="Repeater2" runat="server">
-            <ItemTemplate>
+            <HeaderTemplate>
                 <div class="album py-5 bg-light">
                     <div class="container">
-                        <div class="flex-row">
-                            <div class="col-md-4">
-                                <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" src="images/Alma.jpg" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-                                    <div class="card-body">
-                                        <p class="card-header"><%#Eval("FilmAdi") %></p>
-                                        <p class="card-text"><%#Eval("Konusu") %></p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>
-                                                <a href="#exampleModal" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <asp:Button runat="server" ID="lnkUploadPics" CssClass=" btn-large Greengradiant"
-                                                        Width="100%" Text="Detay" OnClick="lnkUploadPics_Click"></asp:Button>
-                                                </a>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                            </div>
-                                            <small class="text-muted">9 mins</small>
-                                        </div>
-                                    </div>
+
+
+                        <div class="row">
+            </HeaderTemplate>
+            <ItemTemplate>
+                <%--   <div class="album py-5 bg-light">
+                    <div class="container">
+                        <div class="flex-row">--%>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="<%#Eval("FilmResim") %>" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-header"><%#Eval("FilmAdi") %></p>
+                      <%--      <p class="card-text"><%#Eval("Konusu") %></p>--%>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>
+                                    <a href="#exampleModal" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <asp:Button runat="server" ID="lnkUploadPics" CssClass=" btn-large Greengradiant"
+                                            Width="100%" Text="Detay" OnClick="lnkUploadPics_Click"></asp:Button>
+                                    </a>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                                 </div>
+                                <small class="text-muted">9 mins</small>
                             </div>
-                            <%--<div class="col-md-4">
+                        </div>
+                    </div>
+                </div>
+                <%--<div class="col-md-4">
                                 <div class="card mb-4 box-shadow">
                                     <img class="card-img-top" src="images/adadsad.jpg" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
                                     <div class="card-body">
@@ -76,11 +83,16 @@
                                     </div>
                                 </div>
                             </div>--%>
-                        </div>
-                    </div>
+                <%--  </div>
+                    </div>--%>
             </ItemTemplate>
+            <FooterTemplate>
+                </div>
+                </div>
+                </div>
+            </FooterTemplate>
         </asp:Repeater>
-        <asp:Repeater ID="Repeater1" runat="server">
+       <%-- <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
 
                 <rows>
@@ -252,7 +264,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
 
 
                 <div class="fade modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -273,7 +285,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Konusu</h5>
                                         <asp:Label ID="Label2" runat="server" Text='<%#Eval("Konusu") %>'></asp:Label>
-                                       <%-- <p id="FilmKonusu" class="card-text">
+                                        <%-- <p id="FilmKonusu" class="card-text">
                                             <%#Eval("Konusu") %>
                                         </p>--%>
                                     </div>
@@ -288,8 +300,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+         <%--   </div>
+        </div>--%>
     </main>
 
 

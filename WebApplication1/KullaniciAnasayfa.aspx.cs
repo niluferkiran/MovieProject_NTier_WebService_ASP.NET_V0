@@ -24,7 +24,7 @@ namespace WebApplication1
                     f.FilmAdi,
                     f.Konusu,
                     f.FilmResim
-                }).ToList();
+                }).Take(9).Distinct().ToList();
 
                 Repeater2.DataBind();
 

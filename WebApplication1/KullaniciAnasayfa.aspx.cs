@@ -10,7 +10,9 @@ namespace WebApplication1
 {
     public partial class KullaniciAnasayfa : System.Web.UI.Page
     {
+        
         FilmRepository filmRepo = new FilmRepository();
+        DuyuruRepository duyuruRepo = new DuyuruRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -51,6 +53,16 @@ namespace WebApplication1
                 //}).ToList();
 
                 //Repeater1.DataBind();
+
+                filmDuyurusu.DataSource = duyuruRepo.GetAll().Select(d => new
+                {
+                    d.DuyuruId,
+                    d.duyuruIcerik,
+                    d.tarih,
+                    d.Kullanicilar.KullaniciAdi
+                }).ToList();
+
+                filmDuyurusu.DataBind();
             }
             else
             {

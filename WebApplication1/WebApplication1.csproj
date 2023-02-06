@@ -113,6 +113,8 @@
     <Content Include="images\BeautifulMind.jpg" />
     <Content Include="images\BreakingBad.jpg" />
     <Content Include="images\DoctorWho.jpg" />
+    <Content Include="images\duyuru.jpg" />
+    <Content Include="images\filmduyuru.jpg" />
     <Content Include="images\HababamSinifi.jpg" />
     <Content Include="images\HarryPotter.jpg" />
     <Content Include="images\HerCocukOzeldir.jpg" />

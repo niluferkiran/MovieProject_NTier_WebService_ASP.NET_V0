@@ -79,6 +79,9 @@
                 white-space: nowrap;
                 -webkit-overflow-scrolling: touch;
             }
+          #duyuru{
+              height:400px;
+          }
     </style>
 </head>
 <body>

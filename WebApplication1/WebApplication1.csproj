@@ -102,6 +102,7 @@
     <Content Include="Diziler.aspx" />
     <Content Include="Duyurular.aspx" />
     <Content Include="filmForm.aspx" />
+    <Content Include="filmIcerik.aspx" />
     <Content Include="Filmler.aspx" />
     <Content Include="Game1.aspx" />
     <Content Include="CSS\Game1.css" />
@@ -223,6 +224,13 @@
     </Compile>
     <Compile Include="filmForm.aspx.designer.cs">
       <DependentUpon>filmForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="filmIcerik.aspx.cs">
+      <DependentUpon>filmIcerik.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="filmIcerik.aspx.designer.cs">
+      <DependentUpon>filmIcerik.aspx</DependentUpon>
     </Compile>
     <Compile Include="Filmler.aspx.cs">
       <DependentUpon>Filmler.aspx</DependentUpon>

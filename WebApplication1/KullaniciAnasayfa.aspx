@@ -7,36 +7,40 @@
 
 
     <main role="main">
+        <asp:Repeater ID="filmDuyurusu2" runat="server">
+            <HeaderTemplate>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            </HeaderTemplate>
+            <ItemTemplate>
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
 
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                    <img src="images/filmduyuru.jpg" class="d-block w-100" alt="..." id="duyuru">
-                    <h1>Şubat #1</h1>
-                    <%--<asp:Label ID="filmDuyuru" runat="server" Text='<%#Eval("duyuruIcerik") %>'></asp:Label>--%>
+                    <div class="carousel-item active">
+                        <img src="images/filmduyuru.jpg" class="d-block w-100" alt="..." id="duyuru">
+                        <asp:Label ID="filmDuyuru" runat="server" Text='<%#Eval("duyuruIcerik") %>' class="d-block w-100"></asp:Label>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/filmduyuru.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/filmduyuru.jpg" class="d-block w-100" alt="...">
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="images/filmduyuru.jpg" class="d-block w-100" alt="...">
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
                 </div>
-                <div class="carousel-item">
-                    <img src="images/filmduyuru.jpg" class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+            </ItemTemplate>
+        </asp:Repeater>
         <asp:Repeater ID="filmDuyurusu" runat="server">
             <HeaderTemplate>
                 <section class="jumbotron text-center">
@@ -55,7 +59,7 @@
                 </section>
             </FooterTemplate>
         </asp:Repeater>
-        <asp:Repeater ID="Repeater2" runat="server">
+        <asp:Repeater ID="Repeater2" runat="server" OnItemCommand="Repeater2_ItemCommand">
             <HeaderTemplate>
                 <div class="album py-5 bg-light">
                     <div class="container">
@@ -70,6 +74,7 @@
                         <img class="card-img-top" src='<%#Eval("FilmResim")%>.jpg' alt="Card image cap">
                         <div class="card-body">
                             <p class="card-header"><%#Eval("FilmAdi") %></p>
+                            <asp:LinkButton ID="lnkfilmAc" runat="server" CommandName="filmDetay" CommandArgument='<%#Eval("FilmId") %>'>Film Detay</asp:LinkButton>
                             <%--      <p class="card-text"><%#Eval("Konusu") %></p>--%>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -78,6 +83,7 @@
                                         <asp:Button runat="server" ID="lnkUploadPics" CssClass=" btn-large Greengradiant"
                                             Width="100%" Text="Detay" OnClick="lnkUploadPics_Click"></asp:Button>
                                     </a>
+
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                                 </div>
                                 <small class="text-muted">9 mins</small>

@@ -53,6 +53,15 @@ namespace WebApplication1
                 //}).ToList();
 
                 //Repeater1.DataBind();
+                filmDuyurusu2.DataSource = duyuruRepo.GetAll().Select(d => new
+                {
+                    d.DuyuruId,
+                    d.duyuruIcerik,
+                    d.tarih,
+                    d.Kullanicilar.KullaniciAdi
+                }).OrderByDescending(d=> d.tarih).Take(1).ToList();
+
+                filmDuyurusu2.DataBind();
 
                 filmDuyurusu.DataSource = duyuruRepo.GetAll().Select(d => new
                 {
@@ -60,7 +69,7 @@ namespace WebApplication1
                     d.duyuruIcerik,
                     d.tarih,
                     d.Kullanicilar.KullaniciAdi
-                }).ToList();
+                }).OrderByDescending(d => d.tarih).Take(1).ToList();
 
                 filmDuyurusu.DataBind();
             }
@@ -108,6 +117,19 @@ namespace WebApplication1
             ////string filmKonusu = Request.Form["FilmKonusu"];
 
            
+        }
+
+        protected void Repeater2_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "filmDetay":
+                    Response.Redirect(string.Format("filmIcerik.aspx?id={0}",e.CommandArgument));
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

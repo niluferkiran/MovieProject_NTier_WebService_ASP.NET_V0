@@ -145,7 +145,6 @@
     <Content Include="images\UmudunuKaybetme.jpg" />
     <Content Include="js\Filmler.js" />
     <Content Include="js\game1.js" />
-    <Content Include="js\modalOne.js" />
     <Content Include="KarsilamaSayfasi.aspx" />
     <Content Include="KullaniciAnasayfa.aspx" />
     <Content Include="kullaniciForm.aspx" />

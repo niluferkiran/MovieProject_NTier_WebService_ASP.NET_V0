@@ -74,7 +74,8 @@
                         <img class="card-img-top" src='<%#Eval("FilmResim")%>.jpg' alt="Card image cap">
                         <div class="card-body">
                             <p class="card-header"><%#Eval("FilmAdi") %></p>
-                            <asp:LinkButton ID="lnkfilmAc" runat="server" CommandName="filmDetay" CommandArgument='<%#Eval("FilmId") %>'>Film Detay</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CommandName="filmDetay" CommandArgument='<%#Eval("FilmId") %>'>Film Detay</asp:LinkButton>
+                            <%--<asp:LinkButton ID="lnkfilmAc" runat="server" CommandName="filmDetay" CommandArgument='<%#Eval("FilmId") %>'>Film Detay</asp:LinkButton>--%>
                             <%--      <p class="card-text"><%#Eval("Konusu") %></p>--%>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -314,10 +315,12 @@
                     <!-- Header -->
                     <div class="modal-header">
                         <h2 class="modal-title" id="filmAdi"><%#Eval("FilmAdi") %></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">View Person</h4>
                     </div>
 
                     <!-- Body -->
-                    <div class="modal-body">
+                    <div id="personDetails"  class="modal-body">
 
                         <div class="card">
                             <div class="card-body">
@@ -338,8 +341,36 @@
                 </div>
             </div>
         </div>
-        <%--   </div>
-        </div>--%>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                $("#exampleModal").modal({
+                    keyboard: true,
+                    backdrop: "static",
+                    show: false,
+
+                }).on("show.bs.modal", function (event) {
+                    var button = $(event.relatedTarget); // button the triggered modal
+                    var filmId = button.data("FilmId"); //data-id of button which is equal to id (primary key) of person
+                    /* 
+                    Although below is working to get and display values for id (personId), 
+                    it is recommended that they be fetched via ajax ($.ajax()) that queries data 
+                    from database based on personId
+                    */
+                    var lastName = $(event.relatedTarget).closest("tr").find("td:eq(1)").text();
+                    var firstName = $(event.relatedTarget).closest("tr").find("td:eq(2)").text();
+
+                    //displays values to modal
+                    $(this).find("#personDetails").html($("<b>ID: " + filmId + "<br>Last Name: " + lastName + "<br>First Name: " + firstName + "</b>"))
+                }).on("hide.bs.modal", function (event) {
+                    $(this).find("#personDetails").html("");
+                });
+            });
+        </script>
+
     </main>
 
 

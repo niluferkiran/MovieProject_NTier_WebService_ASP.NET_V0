@@ -23,6 +23,7 @@ namespace WebApplication1
 
                 Repeater2.DataSource = filmRepo.GetAll().Select(f => new
                 {
+                    f.FilmId,
                     f.FilmAdi,
                     f.Konusu,
                     f.FilmResim,
